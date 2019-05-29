@@ -1,28 +1,23 @@
-import * as express from 'express';
+import express, { Router } from 'express';
 
 // Create a router instance
 import { NextFunction, Request, Response } from 'express-serve-static-core';
-const router: express.Router = express.Router();
-
-import ExtendedRequest from '../middleware/extended-request';
+const router: Router = Router();
 
 // Import middleware
 import modelFinder from '../middleware/model-finder';
 
 // Dynamically evaluate the model
-router.get('/', rootHandler);
-
-// router.param('model', modelFinder);
+router.param('model', modelFinder);
 
 // Declare routes
-/*
+router.get('/', rootHandler);
 router.get(`/api/v1/:model`, getRecords);
 router.get(`/api/v1/:model/:id`, getRecords);
 router.post(`/api/v1/:model`, createRecord);
 router.put(`/api/v1/:model/:id`, updateRecord);
 router.patch(`/api/v1/:model/:id`, patchRecord);
 router.delete(`/api/v1/:model/:id`, deleteRecord);
-*/
 
 /**
  * Display a home page
@@ -47,11 +42,7 @@ function rootHandler(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function getRecords(
-  req: ExtendedRequest,
-  res: Response,
-  next: NextFunction
-): void {
+function getRecords(req: Request, res: Response, next: NextFunction): void {
   const name = req.params.id;
   req.model
     .get(name)
@@ -67,11 +58,7 @@ function getRecords(
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function createRecord(
-  req: ExtendedRequest,
-  res: Response,
-  next: NextFunction
-): void {
+function createRecord(req: Request, res: Response, next: NextFunction): void {
   const { body } = req;
   req.model
     .post(body)
@@ -87,11 +74,7 @@ function createRecord(
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function updateRecord(
-  req: ExtendedRequest,
-  res: Response,
-  next: NextFunction
-): void {
+function updateRecord(req: Request, res: Response, next: NextFunction): void {
   const { body } = req;
   const { id } = req.params;
   req.model
@@ -109,11 +92,7 @@ function updateRecord(
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function patchRecord(
-  req: ExtendedRequest,
-  res: Response,
-  next: NextFunction
-): void {
+function patchRecord(req: Request, res: Response, next: NextFunction): void {
   const { body } = req;
   const { id } = req.params;
   req.model
@@ -130,11 +109,7 @@ function patchRecord(
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function deleteRecord(
-  req: ExtendedRequest,
-  res: Response,
-  next: NextFunction
-): void {
+function deleteRecord(req: Request, res: Response, next: NextFunction): void {
   const { id } = req.params;
   req.model
     .delete(id)

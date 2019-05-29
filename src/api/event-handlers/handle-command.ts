@@ -34,8 +34,8 @@ const handleCommand = async (line: string, socket: any, io: any) => {
     // Pick the right handler based on the command
     const handler = await handlerFinder(cmd);
     // Use the handler to return the right result
-    const result = await handler(arg, socket, io);
-    // Return the result to handle-input.js
+    const result = await handler.default(arg, socket, io);
+    // Return the result to handle-input
     return result;
   } catch (err) {
     console.error(err);

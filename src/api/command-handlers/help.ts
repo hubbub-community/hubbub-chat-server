@@ -30,12 +30,12 @@ ${chalk.underline.bold('Chat Commands')}
  * Display a list of available commands to the user
  * @function
  * @name help
- * @param undefined {undefined} Unused parameter
+ * @param n {null} Unused parameter
  * @param socket {object} The socket object from the client event
  * @param io {object} The server-side Socket.io instance
- ***/
+ */
 const help = (n = null, socket: any, io: any) => {
   sendToUser(instructions, socket, io, null);
 };
 
-module.exports = help;
+export default help;

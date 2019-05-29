@@ -4,7 +4,7 @@
  */
 
 import { NextFunction, Request, Response } from 'express-serve-static-core';
-import ExtendedRequest from './extended-request';
+// import { Document, Model, Schema } from 'mongoose';
 
 /**
  * Model Finder Middleware
@@ -16,8 +16,24 @@ import ExtendedRequest from './extended-request';
  * @param next {function} Express middleware function
  */
 
-export default (req: ExtendedRequest, res: Response, next: NextFunction) => {
-  const model = req.params.model.replace(/[^a-z0-9-_]/gi, '');
-  req.model = require(`../models/${model}/${model}.model`);
+declare global {
+  namespace Express {
+    // tslint:disable-next-line:interface-name
+    interface Request {
+      model?: any; // Formalize this type
+    }
+  }
+}
+
+const modelFinder = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<any> => {
+  const modelName = req.params.model.replace(/[^a-z0-9-_]/gi, '');
+  const model = await import(`../models/${modelName}/${modelName}.model`);
+  req.model = model.default;
   next();
 };
+
+export default modelFinder;

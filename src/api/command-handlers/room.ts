@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
 import population from '../lib/population';
-import sendToRoom from '../lib/send-to-room.js';
+import sendToRoom from '../lib/send-to-room';
 import sendToUser from '../lib/send-to-user';
 
 /***

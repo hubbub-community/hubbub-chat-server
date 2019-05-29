@@ -41,4 +41,4 @@ Spencer Hirata
   sendToUser(message, socket, io, null);
 };
 
-module.exports = about;
+export default about;

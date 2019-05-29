@@ -16,4 +16,4 @@ const fallback = (n = null, socket: any, io: any) => {
   sendToUser(message, socket, io, null);
 };
 
-module.exports = fallback;
+export default fallback;
