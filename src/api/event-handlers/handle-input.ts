@@ -1,3 +1,5 @@
+import { Server, Socket } from 'socket.io';
+
 import handleCommand from './handle-command';
 import handleMessage from './handle-message';
 
@@ -10,7 +12,7 @@ import handleMessage from './handle-message';
  * @param socket {object} The socket object from the client event
  * @param io {object} The server-side Socket.io instance
  ***/
-const handleInput = (line: string, socket: any, io: any) => {
+const handleInput = (line: string, socket: Socket, io: Server): void => {
   console.log('Received input:', line);
   line = line.trim();
 

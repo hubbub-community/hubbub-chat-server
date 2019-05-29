@@ -1,3 +1,18 @@
+import {
+  IGetDetails,
+  IRooms,
+  ISocketIdsPerRoom,
+  IUserCountPerRoom,
+  IUserNamesPerRoom,
+  IUsers,
+  TRoomName,
+  TRoomNames,
+  TSocketId,
+  TTotalRooms,
+  TTotalUsers,
+  TUsername,
+} from '../../global';
+
 class Population {
   public users: IUsers = {};
   public rooms: IRooms = {};
@@ -7,7 +22,9 @@ class Population {
   }
   // Add a user to a users list with their socketId
   public addUser(socketId: TSocketId, username: TUsername): void {
-    this.users[socketId] = username;
+    if (typeof socketId === 'string' && typeof username === 'string') {
+      this.users[socketId] = username;
+    }
   }
 
   // Add a user to a room; if the room doesn't exist,
@@ -25,7 +42,9 @@ class Population {
 
   // Delete user and socketId from users list
   public deleteUser(socketId: TSocketId): void {
-    delete this.users[socketId];
+    if (typeof socketId === 'string') {
+      delete this.users[socketId];
+    }
   }
 
   // Remove a user from a room. If the room becomes empty,
@@ -62,8 +81,8 @@ class Population {
   // The names of users in each room.
   public getDetails(): IGetDetails {
     const roomNames: TRoomNames = Object.keys(this.rooms);
-    const totalRooms: number = roomNames.length;
-    const totalUsers: number = Object.keys(this.users).length;
+    const totalRooms: TTotalRooms = roomNames.length;
+    const totalUsers: TTotalUsers = Object.keys(this.users).length;
 
     const userCountPerRoom: IUserCountPerRoom = {};
     const socketIdsPerRoom: ISocketIdsPerRoom = {};
@@ -81,7 +100,13 @@ class Population {
     for (const room in socketIdsPerRoom) {
       if (socketIdsPerRoom[room]) {
         usernamesPerRoom[room] = socketIdsPerRoom[room].map(
-          id => this.users[id]
+          (socketId: TSocketId) => {
+            if (typeof socketId === 'string') {
+              return this.users[socketId];
+            } else {
+              return 'Error getting details';
+            }
+          }
         );
       }
     }
@@ -115,19 +140,32 @@ class Population {
         return room;
       }
     }
-    return `No room found for SocketID ${socketId}`;
+    return `Error getting room for socketId ${socketId}`;
   }
 
   // Get the socketId associated with a given username
-  public getSocketId(username: TUsername) {
-    return Object.keys(this.users).find(
-      socketId => this.users[socketId] === username
-    );
+  public getSocketId(username: TUsername): TSocketId {
+    const usersArr = Object.keys(this.users);
+
+    const targetSocketId: TSocketId =
+      usersArr.find((socketId: TSocketId) => {
+        if (typeof socketId === 'string') {
+          return this.users[socketId] === username;
+        } else {
+          return false;
+        }
+      }) || null;
+
+    return targetSocketId;
   }
 
   // Get the username associated with a given socketId
   public getUsername(socketId: TSocketId): TUsername {
-    return this.users[socketId];
+    if (typeof socketId === 'string') {
+      return this.users[socketId];
+    } else {
+      return `Error getting username for socketId ${socketId}`;
+    }
   }
 
   // Get the socketId of the leader of a room, if it exists
@@ -150,7 +188,7 @@ class Population {
 
   // Returns a Boolean for whether a username is
   // currently associated with a socketId in any room
-  public isUsername(username: string): boolean {
+  public isUsername(username: TUsername): boolean {
     return this.getSocketId(username) ? true : false;
   }
 }

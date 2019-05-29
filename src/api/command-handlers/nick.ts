@@ -1,4 +1,7 @@
 import chalk from 'chalk';
+import { Server, Socket } from 'socket.io';
+
+import { TRoomName, TUsername } from '../../global';
 
 import population from '../lib/population';
 import sendToRoom from '../lib/send-to-room';
@@ -12,27 +15,29 @@ import sendToUser from '../lib/send-to-user';
  * @param socket {object} The socket object from the client event
  * @param io {object} The server-side Socket.io instance
  */
-const nick = (arg: string, socket: any, io: any) => {
-  const oldName = population.getUsername(socket.id);
-  const isTaken = population.isUsername(arg);
+const nick = (arg: string, socket: Socket, io: Server): void => {
+  const oldName: TUsername = population.getUsername(socket.id);
+  const isTaken: boolean = population.isUsername(arg);
 
   // Don't allow duplicate usernames
   if (isTaken) {
-    const userMessage = `The username ${chalk.cyan(arg)} is not available`;
+    const userMessage: string = `The username ${chalk.cyan(
+      arg
+    )} is not available`;
     sendToUser(userMessage, socket, io, null);
   } else {
     population.addUser(socket.id, arg);
-    const name = chalk.yellow(arg);
-    const room = population.getRoom(socket.id);
+    const name: TUsername = chalk.yellow(arg);
+    const room: TRoomName = population.getRoom(socket.id);
 
     // Send to room
-    const roomAnnouncement = `${chalk.red(
+    const roomAnnouncement: string = `${chalk.red(
       oldName
     )} has updated their name to ${name}`;
     sendToRoom(roomAnnouncement, room, socket);
 
     // Send to user
-    const userMessage = `Your username has been changed to ${name}`;
+    const userMessage: string = `Your username has been changed to ${name}`;
     sendToUser(userMessage, socket, io, null);
   }
 };

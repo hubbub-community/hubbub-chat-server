@@ -23,5 +23,5 @@
   },
   "types": ["src/**/*.d.ts"],
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/__mocks__/**"]
+  "exclude": ["node_modules", "src/**/*.test.ts"]
 }

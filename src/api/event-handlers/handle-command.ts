@@ -1,3 +1,7 @@
+import { Server, Socket } from 'socket.io';
+
+import { IHandlerFinder, IParse } from '../../global';
+
 import handlerFinder from '../lib/handler-finder';
 
 /***
@@ -5,18 +9,18 @@ import handlerFinder from '../lib/handler-finder';
  * @function
  * @name parse
  * @param line {string} A command input from the user
- ***/
-export const parse = (line: string) => {
+ */
+export const parse = (line: string): IParse => {
   // Grab a case insensitive command
-  const slashWord = line.match(/[a-z]+\b/i);
+  const slashWord: RegExpMatchArray = line.match(/[a-z]+\b/i) || [];
   if (slashWord && slashWord.length >= 1) {
-    const cmd = slashWord[0];
+    const cmd: string = slashWord[0];
     // Grab the arguments
-    const arg = line.slice(cmd.length + 2, line.length);
+    const arg: string = line.slice(cmd.length + 2, line.length);
     // Return them
     return { cmd, arg };
   }
-  return { cmd: '', arg: '' };
+  return { cmd: 'fallback', arg: null };
 };
 
 /***
@@ -27,16 +31,19 @@ export const parse = (line: string) => {
  * @param socket {object} The socket object from the client event
  * @param io {object} The server-side Socket.io instance
  ***/
-const handleCommand = async (line: string, socket: any, io: any) => {
+
+const handleCommand = async (
+  line: string,
+  socket: Socket,
+  io: Server
+): Promise<void> => {
   try {
     // Parse the line for command and argument
     const { cmd, arg } = parse(line);
     // Pick the right handler based on the command
-    const handler = await handlerFinder(cmd);
-    // Use the handler to return the right result
-    const result = await handler.default(arg, socket, io);
-    // Return the result to handle-input
-    return result;
+    const handler: IHandlerFinder = await handlerFinder(cmd);
+    // Call the resulting handler function with the given arguments
+    handler.default(arg, socket, io);
   } catch (err) {
     console.error(err);
   }

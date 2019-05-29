@@ -1,3 +1,6 @@
+import { Socket } from 'socket.io';
+
+import { TRoomName } from '../../global';
 import population from '../lib/population';
 
 /***
@@ -8,9 +11,9 @@ import population from '../lib/population';
  * @param socket {object} The socket object from the client event
  ***/
 
-async function handleDisconnect(socket: any) {
+const handleDisconnect = (socket: Socket): void => {
   try {
-    const room = await population.getRoom(socket.id);
+    const room: TRoomName = population.getRoom(socket.id);
     population.depopulateRoom(socket.id, room);
     population.deleteUser(socket.id);
     socket.leave(room);
@@ -18,6 +21,6 @@ async function handleDisconnect(socket: any) {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 export default handleDisconnect;

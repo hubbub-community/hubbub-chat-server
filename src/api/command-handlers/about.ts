@@ -1,15 +1,17 @@
+import { Server, Socket } from 'socket.io';
+
 import sendToUser from '../lib/send-to-user';
 
 /***
  * See information about the project and development team
  * @function
  * @name fallback
- * @param undefined {undefined} Unused parameter
+ * @param arg {null} Unused parameter
  * @param socket {object} The socket object from the client event
  * @param io {object} The server-side Socket.io instance
  */
-const about = (n = null, socket: any, io: any) => {
-  const message = `
+const about = (arg: null = null, socket: Socket, io: Server): void => {
+  const message: string = `
 ==================================
 _        _    _         _    
 | |_ _  _| |__| |__ _  _| |__ 

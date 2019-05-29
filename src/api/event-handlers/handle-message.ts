@@ -1,5 +1,7 @@
 import chalk from 'chalk';
+import { Socket } from 'socket.io';
 
+import { TRoomName, TUsername } from '../../global';
 import population from '../lib/population';
 import sendToRoom from '../lib/send-to-room';
 
@@ -13,11 +15,11 @@ import sendToRoom from '../lib/send-to-room';
  * @param line {string} The user's public chat message
  * @param socket {object} The socket object from the client event
  ***/
-const handleMessage = (line: string, socket: any) => {
-  const username = population.getUsername(socket.id);
-  const room = population.getRoom(socket.id);
-  const designator = chalk.yellow(`‹${username}›`);
-  const message = `${designator} ${line}`;
+const handleMessage = (line: string, socket: Socket): void => {
+  const username: TUsername = population.getUsername(socket.id);
+  const room: TRoomName = population.getRoom(socket.id);
+  const designator: string = chalk.yellow(`‹${username}›`);
+  const message: string = `${designator} ${line}`;
 
   sendToRoom(message, room, socket);
 };

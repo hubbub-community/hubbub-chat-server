@@ -1,17 +1,17 @@
 import chalk from 'chalk';
+import { Server, Socket } from 'socket.io';
+
 // const emojic = require('emojic');
 import sendToUser from '../lib/send-to-user';
 
-const instructions = `
+const instructions: string = `
 ${chalk.underline.bold('Chat Commands')}
 /about ← See information about the Hubbub projects and development team
 /details ← See your name, the room you're in, and a list of other users in your current room
 /exit ← Disconnect from the server and exit the program
 /help ← This menu
 /launch ${chalk.green('url')} ← Run the application at ${chalk.green('url')}! ${
-  '' /*
-  emojic.rocket
-*/
+  '::rocket::' /* emojic.rocket */
 }
 /leave ← Return to the chat lobby from within the chat
 /list ← See a list of external applications you can run
@@ -24,17 +24,17 @@ ${chalk.underline.bold('Chat Commands')}
 )}
 /room ${chalk.green(
   'name'
-)} ← Create and automatically join a room called ${chalk.green('name')}
-`;
-/***
+)} ← Create and automatically join a room called ${chalk.green('name')}\n`;
+
+/**
  * Display a list of available commands to the user
  * @function
  * @name help
- * @param n {null} Unused parameter
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
+ * @param arg {null} Unused parameter
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
  */
-const help = (n = null, socket: any, io: any) => {
+const help = (arg: null = null, socket: Socket, io: Server): void => {
   sendToUser(instructions, socket, io, null);
 };
 

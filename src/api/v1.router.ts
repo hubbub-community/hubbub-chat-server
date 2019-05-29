@@ -2,7 +2,10 @@ import express, { Router } from 'express';
 
 // Create a router instance
 import { NextFunction, Request, Response } from 'express-serve-static-core';
+
 const router: Router = Router();
+
+import { IRequest } from '../global';
 
 // Import middleware
 import modelFinder from '../middleware/model-finder';
@@ -42,11 +45,11 @@ function rootHandler(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function getRecords(req: Request, res: Response, next: NextFunction): void {
+function getRecords(req: IRequest, res: Response, next: NextFunction): void {
   const name = req.params.id;
   req.model
     .get(name)
-    .then((results: any) => res.status(200).send(results))
+    .then((results: object) => res.status(200).send(results))
     .catch(next);
 }
 
@@ -58,11 +61,12 @@ function getRecords(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function createRecord(req: Request, res: Response, next: NextFunction): void {
+function createRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
+  // TODO: Sync detailed result type with MongooseModel return type
   req.model
     .post(body)
-    .then((result: any) => res.status(200).send(result))
+    .then((result: object) => res.status(200).send(result))
     .catch(next);
 }
 
@@ -74,12 +78,13 @@ function createRecord(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function updateRecord(req: Request, res: Response, next: NextFunction): void {
+function updateRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
   const { id } = req.params;
+  // TODO: Sync detailed result type with MongooseModel return type
   req.model
     .put(id, body)
-    .then((result: any) => res.status(200).send(result))
+    .then((result: object) => res.status(200).send(result))
     .catch(next);
 }
 
@@ -92,12 +97,13 @@ function updateRecord(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function patchRecord(req: Request, res: Response, next: NextFunction): void {
+function patchRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
   const { id } = req.params;
+  // TODO: Sync detailed result type with MongooseModel return type
   req.model
     .patch(id, body)
-    .then((result: any) => res.status(200).send(result))
+    .then((result: object) => res.status(200).send(result))
     .catch(next);
 }
 
@@ -109,11 +115,12 @@ function patchRecord(req: Request, res: Response, next: NextFunction): void {
  * @param res {object} Express response object
  * @param next {function} Express middleware function
  */
-function deleteRecord(req: Request, res: Response, next: NextFunction): void {
+function deleteRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { id } = req.params;
+  // TODO: Sync detailed result type with MongooseModel return type
   req.model
     .delete(id)
-    .then((result: any) => res.status(200).send(result))
+    .then((result: object) => res.status(200).send(result))
     .catch(next);
 }
 

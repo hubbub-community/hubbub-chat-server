@@ -1,5 +1,7 @@
 import { Server, Socket } from 'socket.io';
 
+import { TSocketId } from '../../global';
+
 /**
  * Sends a direct message to a single user
  * @function
@@ -10,13 +12,11 @@ import { Server, Socket } from 'socket.io';
  * @param id {TId} The `socket.id` of the recipient if they did not initiate the event
  */
 
-type TId = string | null;
-
 const sendToUser = (
   message: string,
   socket: Socket,
   io: Server,
-  id: TId
+  id: TSocketId
 ): void => {
   const payload = message;
   if (id) {
