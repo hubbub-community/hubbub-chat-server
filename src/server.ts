@@ -3,8 +3,6 @@
  * @module src/server
  ***/
 
-const cwd: string = process.cwd();
-
 // Express
 import express from 'express';
 import { createServer, Server } from 'http';
@@ -29,10 +27,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Documentation
-app.use('/docs', express.static(`${cwd}/docs`));
+app.use('/docs', express.static(`../docs`));
 import swaggerUI from 'swagger-ui-express';
 
-import swaggerDocument from '../docs/config/swagger.json'; // TS doesn't like import `${cwd}/...`
+import swaggerDocument from '../swagger.json';
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes
