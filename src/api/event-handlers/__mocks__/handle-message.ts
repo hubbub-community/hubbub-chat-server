@@ -1,3 +1,5 @@
+import('../../../global'); // Types
+
 import population from '../../lib/population';
 import sendToRoom from '../../lib/send-to-room';
 

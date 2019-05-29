@@ -1,3 +1,6 @@
+// tslint:disable-next-line:no-reference
+/// <reference path="../../global.d.ts" />
+
 /**
  * Sends a message to everyone in the room except the user
  * @function

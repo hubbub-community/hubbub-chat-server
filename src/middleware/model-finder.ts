@@ -16,15 +16,6 @@ import { NextFunction, Request, Response } from 'express-serve-static-core';
  * @param next {function} Express middleware function
  */
 
-declare global {
-  namespace Express {
-    // tslint:disable-next-line:interface-name
-    interface Request {
-      model?: any; // Formalize this type
-    }
-  }
-}
-
 const modelFinder = async (
   req: Request,
   res: Response,
