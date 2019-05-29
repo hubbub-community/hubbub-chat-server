@@ -14,7 +14,7 @@
     "test-watch": "jest --coverage --verbose --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "build": "tsc -b",
-    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+    "jsdoc": "rm -rf ./docs/*; jsdoc -c ./jsdoc.config.json"
   },
   "repository": {
     "type": "git",
