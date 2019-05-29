@@ -22,5 +22,5 @@
     "target": "es5"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/**/*.test.ts", "**/__mocks__/**"]
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/__mocks__/**"]
 }
