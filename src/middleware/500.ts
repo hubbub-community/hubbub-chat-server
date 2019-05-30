@@ -1,0 +1,31 @@
+/**
+ * Error 500 Middleware
+ * @module middleware/500
+ */
+
+import { NextFunction, Request, Response } from 'express-serve-static-core';
+import HttpException from './http-exception';
+
+/**
+ * Error 500 handler - Returns a JSON object on a server error
+ * @function
+ * @name serverErrorMiddleware
+ * @param err {HttpException} Extended Express error object
+ * @param req {Request} Express request object
+ * @param res {Response} Express response object
+ * @param next {NextFunction} Express middleware function
+ */
+function serverErrorMiddleware(
+  err: HttpException,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  console.error('__SERVER_ERROR__', err);
+  const status: number = err.status || 500;
+  const message: string = err.message || 'Server Error';
+  res.setHeader('Content-Type', 'application/json');
+  res.status(status).send(JSON.stringify({ status, message }));
+}
+
+export default serverErrorMiddleware;

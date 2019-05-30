@@ -1,0 +1,188 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Hubbub Chat Server",
+    "description": "Default server for the Hubbub Community Client",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://shrouded-everglades-62939.herokuapp.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/{model}": {
+      "parameters": [
+        {
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get all {model} entries",
+        "responses": {
+          "200": {
+            "description": "Returned a list of {model} entries",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new {model}",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created {model}",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Model"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/{model}/{name}": {
+      "parameters": [
+        {
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get One {model}",
+        "responses": {
+          "200": {
+            "description": "Returned one {model}",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Model"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/{model}/{id}": {
+      "parameters": [
+        {
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "delete": {
+        "description": "Delete One {Model}",
+        "responses": {
+          "200": {
+            "description": "Deleted one {model}",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Model"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Replace a {model}",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Model"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the updated {model}",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Model"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ModelList": {
+        "type": "object",
+        "example": {
+          "count": 0,
+          "results": []
+        }
+      },
+      "NewModel": {
+        "type": "object",
+        "example": {
+          "name": "Model Name",
+          "description": "A descrition of the model",
+          "url": "A link to the model server"
+        }
+      },
+      "Model": {
+        "type": "object",
+        "example": {
+          "id": 2,
+          "description": "A descrition of the model",
+          "url": "A link to the model server",
+          "name": "Model Name"
+        }
+      }
+    }
+  }
+}
