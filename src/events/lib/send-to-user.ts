@@ -1,6 +1,6 @@
 import { Server, Socket } from 'socket.io';
 
-import { TSocketId } from '../../global';
+import { TSocketId } from '../../types/global';
 
 /**
  * Sends a direct message to a single user

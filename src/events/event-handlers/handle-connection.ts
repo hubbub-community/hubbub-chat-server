@@ -4,7 +4,7 @@ import { hacker } from 'faker';
 const { noun } = hacker;
 import { Server, Socket } from 'socket.io';
 
-import { TUsername } from '../../global';
+import { TUsername } from '../../types/global';
 
 import sendToRoom from '../lib/send-to-room';
 import sendToUser from '../lib/send-to-user';

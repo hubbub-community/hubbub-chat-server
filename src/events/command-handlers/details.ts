@@ -1,7 +1,12 @@
 import chalk from 'chalk';
 import { Server, Socket } from 'socket.io';
 
-import { IGetDetails, TRoomName, TSocketId, TUsername } from '../../global';
+import {
+  IGetDetails,
+  TRoomName,
+  TSocketId,
+  TUsername,
+} from '../../types/global';
 import population from '../lib/population';
 import sendToUser from '../lib/send-to-user';
 

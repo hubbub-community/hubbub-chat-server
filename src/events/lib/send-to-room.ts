@@ -1,6 +1,6 @@
 import { Socket } from 'socket.io';
 
-import { TRoomName } from '../../global';
+import { TRoomName } from '../../types/global';
 
 /**
  * Sends a message to everyone in the room except the user

@@ -1,6 +1,6 @@
 import { Socket } from 'socket.io';
 
-import { TRoomName } from '../../global';
+import { TRoomName } from '../../types/global';
 import population from '../lib/population';
 
 /**

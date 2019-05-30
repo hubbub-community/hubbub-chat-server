@@ -10,7 +10,7 @@ import { NextFunction, Request, Response } from 'express-serve-static-core';
 
 const router: Router = Router();
 
-import { IRequest } from '../global';
+import { IRequest } from '../types/global';
 
 // Import middleware
 import modelFinder from '../middleware/model-finder';

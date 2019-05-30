@@ -1,4 +1,4 @@
-import * as t from '../../global';
+import * as t from '../../types/global';
 
 /**
  * This class is used to track and manage users in the chat environment.

@@ -1,6 +1,6 @@
 import { Server, Socket } from 'socket.io';
 
-import { IHandlerFinder, IParse } from '../../global';
+import { IHandlerFinder, IParse } from '../../types/global';
 
 import handlerFinder from '../lib/handler-finder';
 

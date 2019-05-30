@@ -4,7 +4,7 @@ dotenv.config();
 import mongoose from 'mongoose';
 import start from './server';
 
-const DB_NAME: string = 'app-info';
+const DB_NAME: string = process.env.DB_NAME || 'anonymous_collection';
 const PORT: string = process.env.PORT || '3000';
 const MONGODB_URI: string =
   process.env.MONGODB_URI || `mongodb://localhost:27017/${DB_NAME}`;

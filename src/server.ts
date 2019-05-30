@@ -13,7 +13,7 @@ const server: Server = createServer(app); // Integrated Express/Socket.io server
 import SocketIO from 'socket.io';
 const io = SocketIO(server);
 
-import events from './api/v1.events';
+import events from './events/v1.events';
 events(io);
 
 // Middleware
@@ -34,7 +34,7 @@ import swaggerDocument from '../swagger.json';
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes
-import v1Router from './api/v1.router';
+import v1Router from './routes/v1.router';
 app.use(v1Router);
 
 // Error handling
