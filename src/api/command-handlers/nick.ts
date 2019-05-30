@@ -2,18 +2,18 @@ import chalk from 'chalk';
 import { Server, Socket } from 'socket.io';
 
 import { TRoomName, TUsername } from '../../global';
-
 import population from '../lib/population';
 import sendToRoom from '../lib/send-to-room';
 import sendToUser from '../lib/send-to-user';
 
-/***
+/**
  * Reassign a username to a custom nickname, if it's not taken
+ * @exports
  * @function
  * @name nick
  * @param arg {string} The proposed new username
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
  */
 const nick = (arg: string, socket: Socket, io: Server): void => {
   const oldName: TUsername = population.getUsername(socket.id);

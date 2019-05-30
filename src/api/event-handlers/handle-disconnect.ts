@@ -3,14 +3,14 @@ import { Socket } from 'socket.io';
 import { TRoomName } from '../../global';
 import population from '../lib/population';
 
-/***
+/**
  * Removes the user from the population memory pool
  * and performs other cleanup
+ * @exports
  * @function
  * @name handleDisconnect
- * @param socket {object} The socket object from the client event
- ***/
-
+ * @param socket {Socket} The socket object from the client event
+ */
 const handleDisconnect = (socket: Socket): void => {
   try {
     const room: TRoomName = population.getRoom(socket.id);

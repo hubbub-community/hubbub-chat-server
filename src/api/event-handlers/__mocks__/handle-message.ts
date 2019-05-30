@@ -4,7 +4,7 @@ import { TRoomName, TUsername } from '../../../global';
 import population from '../../lib/population';
 import sendToRoom from '../../lib/send-to-room';
 
-// mockSocket should extend Socket
+// TODO: mockSocket should extend Socket
 const mockSocket = {
   emit: jest.fn(),
   id: Math.random().toString(),

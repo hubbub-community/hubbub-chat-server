@@ -4,11 +4,13 @@ import { IHandlerFinder, IParse } from '../../global';
 
 import handlerFinder from '../lib/handler-finder';
 
-/***
+/**
  * Separates a command's command and argument
+ * @export
  * @function
  * @name parse
  * @param line {string} A command input from the user
+ * @returns {IParse}
  */
 export const parse = (line: string): IParse => {
   // Grab a case insensitive command
@@ -23,15 +25,16 @@ export const parse = (line: string): IParse => {
   return { cmd: 'fallback', arg: null };
 };
 
-/***
+/**
  * Middleware to process commands from the user.
+ * @exports
  * @function
  * @name handleCommand
  * @param line {string} The input from the client
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
- ***/
-
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
+ * @returns {Promise<void>}
+ */
 const handleCommand = async (
   line: string,
   socket: Socket,

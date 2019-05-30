@@ -5,14 +5,15 @@ import { IGetDetails, TRoomName, TSocketId, TUsername } from '../../global';
 import population from '../lib/population';
 import sendToUser from '../lib/send-to-user';
 
-/***
+/**
  * Display details to the user including their username,
  * their room, and the users they're with.
+ * @exports
  * @function
  * @name details
  * @param arg {null} Unused parameter
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
  */
 const details = (arg: null = null, socket: Socket, io: Server): void => {
   const populationDetails: IGetDetails = population.getDetails();
