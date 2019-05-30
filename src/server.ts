@@ -27,10 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Documentation
-app.use('/docs', express.static(`../docs`));
-import swaggerUI from 'swagger-ui-express';
+// Ensure package.json scripts move TypeDocs to the right place on build
+app.use('/docs', express.static(`./docs`));
 
-import swaggerDocument from '../swagger.json';
+import swaggerUI from 'swagger-ui-express';
+import swaggerDocument from './docs/swagger.json';
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes

@@ -8,13 +8,13 @@
     "npm": ">= 6.9.0"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node index.ts",
     "watch": "nodemon --config './nodemon.json'",
     "test": "jest --coverage --verbose",
     "test-watch": "jest --coverage --verbose --watch",
     "lint": "tslint -c './tslint.json' 'src/**/*.{ts,tsx}'",
-    "build": "rm -rf 'build'; tsc -b",
-    "doc": "rm -rf 'docs/*'; npx typedoc --mode 'file' --out 'docs/' 'src/'; cp -r 'docs/' 'build/'"
+    "build": "rm -rf 'build'; tsc -b; npm run doc",
+    "doc": "rm -rf 'docs/*'; npx typedoc --mode 'file' --out 'docs/' 'src/'; cp -r docs/* 'build/docs/'"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/hubbub-community/hubbub-chat-server#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "export CI=true && npm run build && lint-staged && npm run test && npm run doc",
+      "pre-commit": "export CI=true && npm run build && lint-staged && npm run test",
       "pre-push": "export CI=true && npm run build && lint-staged && npm run test"
     }
   },

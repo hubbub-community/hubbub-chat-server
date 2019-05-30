@@ -71,6 +71,7 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/appinfomodel.html" class="tsd-kind-icon">App<wbr>Info<wbr>Model</a></li>
+								<li class="tsd-kind-class"><a href="classes/controllers.html" class="tsd-kind-icon">Controllers</a></li>
 								<li class="tsd-kind-class"><a href="classes/httpexception.html" class="tsd-kind-icon">Http<wbr>Exception</a></li>
 								<li class="tsd-kind-class"><a href="classes/mongoosemodel.html" class="tsd-kind-icon">Mongoose<wbr>Model</a></li>
 								<li class="tsd-kind-class"><a href="classes/population.html" class="tsd-kind-icon">Population</a></li>
@@ -109,12 +110,9 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#about" class="tsd-kind-icon">about</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#createrecord" class="tsd-kind-icon">create<wbr>Record</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#deleterecord" class="tsd-kind-icon">delete<wbr>Record</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#details" class="tsd-kind-icon">details</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#fallback" class="tsd-kind-icon">fallback</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#getrecords" class="tsd-kind-icon">get<wbr>Records</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#handlecommand" class="tsd-kind-icon">handle<wbr>Command</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#handleconnection" class="tsd-kind-icon">handle<wbr>Connection</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#handledisconnect" class="tsd-kind-icon">handle<wbr>Disconnect</a></li>
@@ -131,15 +129,12 @@
 								<li class="tsd-kind-function"><a href="globals.html#nick" class="tsd-kind-icon">nick</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#notfoundmiddleware" class="tsd-kind-icon">not<wbr>Found<wbr>Middleware</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#parse" class="tsd-kind-icon">parse</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#patchrecord" class="tsd-kind-icon">patch<wbr>Record</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#room" class="tsd-kind-icon">room</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#roothandler" class="tsd-kind-icon">root<wbr>Handler</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#sendtoroom" class="tsd-kind-icon">send<wbr>ToRoom</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#sendtouser" class="tsd-kind-icon">send<wbr>ToUser</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#servererrormiddleware" class="tsd-kind-icon">server<wbr>Error<wbr>Middleware</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#setgreeting" class="tsd-kind-icon">set<wbr>Greeting</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#start" class="tsd-kind-icon">start</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#updaterecord" class="tsd-kind-icon">update<wbr>Record</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
@@ -157,10 +152,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="db_name" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> DB_<wbr>NAME</h3>
-					<div class="tsd-signature tsd-kind-icon">DB_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;app-info&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">DB_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.DB_NAME || &#x27;anonymous_collection&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/index.ts:7</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L7">index.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">MONGODB_<wbr>URI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.MONGODB_URI || &#x60;mongodb://localhost:27017/${DB_NAME}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/index.ts:9</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L9">index.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">PORT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.PORT || &#x27;3000&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/index.ts:8</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L8">index.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">app<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Express</span><span class="tsd-signature-symbol"> =&nbsp;express()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/server.ts:9</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/server.ts#L9">server.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">app<wbr>Info<wbr>Schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol"> =&nbsp;new mongoose.Schema({description: { type: String, required: true },name: { type: String, required: true },url: { type: String, required: true },})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/models/app-info/app-info.schema.ts:4</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/models/app-info/app-info.schema.ts#L4">models/app-info/app-info.schema.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">instructions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${chalk.underline.bold(&#x27;Chat Commands&#x27;)}/about ← See information about the Hubbub projects and development team/details ← See your name, the room you&#x27;re in, and a list of other users in your current room/exit ← Disconnect from the server and exit the program/help ← This menu/launch ${chalk.green(&#x27;url&#x27;)} ← Run the application at ${chalk.green(&#x27;url&#x27;)}! ${&#x27;::rocket::&#x27; /* emojic.rocket */}/leave ← Return to the chat lobby from within the chat/list ← See a list of external applications you can run/lobby ← Reconnect to the chat server/join ${chalk.blue(&#x27;room&#x27;)} ← Join the ongoing chat in ${chalk.blue(&#x27;room&#x27;)}/me :D ← Emotes lamely. ${chalk.magenta(&#x27;:D&#x27;)}/msg ${chalk.yellow(&#x27;user&#x27;)} ← Send a direct message to ${chalk.yellow(&#x27;user&#x27;)}/nick ${chalk.cyan(&#x27;username&#x27;)} ← Update your username to ${chalk.cyan(&#x27;username&#x27;)}/room ${chalk.green(&#x27;name&#x27;)} ← Create and automatically join a room called ${chalk.green(&#x27;name&#x27;)}\n&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/command-handlers/help.ts:7</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/help.ts#L7">events/command-handlers/help.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">io<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span><span class="tsd-signature-symbol"> =&nbsp;SocketIO(server)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/server.ts:14</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/server.ts#L14">server.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">noun<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">noun</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/event-handlers/handle-connection.ts:4</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-connection.ts#L4">events/event-handlers/handle-connection.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,8 +235,8 @@
 					<div class="tsd-signature tsd-kind-icon">population<span class="tsd-signature-symbol">:</span> <a href="classes/population.html" class="tsd-signature-type">Population</a><span class="tsd-signature-symbol"> =&nbsp;new Population()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/population.ts:3</li>
-							<li>Defined in src/api/lib/__mocks__/population.ts:5</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/population.ts#L3">events/lib/population.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L5">events/lib/__mocks__/population.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">room1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;lorem.word()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:16</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L16">events/lib/__mocks__/population.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -261,7 +256,7 @@
 					<div class="tsd-signature tsd-kind-icon">room2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"lobby"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;lobby&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:29</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L29">events/lib/__mocks__/population.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">room3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"special"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;special&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:35</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L35">events/lib/__mocks__/population.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -281,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol"> =&nbsp;Router()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/v1.router.ts:11</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/routes/v1.router.ts#L10">routes/v1.router.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -291,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span><span class="tsd-signature-symbol"> =&nbsp;createServer(app)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/server.ts:10</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/server.ts#L10">server.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -301,7 +296,7 @@
 					<div class="tsd-signature tsd-kind-icon">socket<wbr>Id1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;random.number().toString()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:7</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L7">events/lib/__mocks__/population.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">socket<wbr>Id2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;random.number().toString()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:10</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L10">events/lib/__mocks__/population.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -321,7 +316,7 @@
 					<div class="tsd-signature tsd-kind-icon">socket<wbr>Id3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;random.number().toString()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:13</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L13">events/lib/__mocks__/population.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +326,7 @@
 					<div class="tsd-signature tsd-kind-icon">socket<wbr>Id4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"1"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;1&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:27</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L27">events/lib/__mocks__/population.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -341,7 +336,7 @@
 					<div class="tsd-signature tsd-kind-icon">socket<wbr>Id5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"2"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;2&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:33</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L33">events/lib/__mocks__/population.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -351,7 +346,7 @@
 					<div class="tsd-signature tsd-kind-icon">username1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;lorem.word()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:8</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L8">events/lib/__mocks__/population.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +356,7 @@
 					<div class="tsd-signature tsd-kind-icon">username2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;lorem.word()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:11</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L11">events/lib/__mocks__/population.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -371,7 +366,7 @@
 					<div class="tsd-signature tsd-kind-icon">username3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;lorem.word()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:14</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L14">events/lib/__mocks__/population.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -381,7 +376,7 @@
 					<div class="tsd-signature tsd-kind-icon">username4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Bob"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Bob&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:28</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L28">events/lib/__mocks__/population.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -391,7 +386,7 @@
 					<div class="tsd-signature tsd-kind-icon">username5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Jane"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Jane&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/lib/__mocks__/population.ts:34</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/population.ts#L34">events/lib/__mocks__/population.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -408,7 +403,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/about.ts:15</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/about.ts#L15">events/command-handlers/about.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -447,92 +442,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="createrecord" class="tsd-anchor"></a>
-					<h3>create<wbr>Record</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Record<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRequest</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:63</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a new record</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">IRequest</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="deleterecord" class="tsd-anchor"></a>
-					<h3>delete<wbr>Record</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Record<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRequest</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:111</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete a record</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">IRequest</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="details" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> details</h3>
@@ -543,7 +452,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/details.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/details.ts#L23">events/command-handlers/details.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -593,7 +502,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/v1.events.ts:19</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/v1.events.ts#L19">events/v1.events.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -626,7 +535,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/fallback.ts:15</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/fallback.ts#L15">events/command-handlers/fallback.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -665,49 +574,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="getrecords" class="tsd-anchor"></a>
-					<h3>get<wbr>Records</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Records<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRequest</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:49</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all or one record</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">IRequest</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="handlecommand" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> handle<wbr>Command</h3>
@@ -718,7 +584,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-command.ts:38</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-command.ts#L38">events/event-handlers/handle-command.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -767,7 +633,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-connection.ts:44</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-connection.ts#L44">events/event-handlers/handle-connection.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -809,7 +675,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-disconnect.ts:14</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-disconnect.ts#L14">events/event-handlers/handle-disconnect.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -843,7 +709,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-input.ts:16</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-input.ts#L16">events/event-handlers/handle-input.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -894,7 +760,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/__mocks__/handle-message.ts:14</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/__mocks__/handle-message.ts#L14">events/event-handlers/__mocks__/handle-message.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -911,7 +777,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-message.ts:19</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-message.ts#L19">events/event-handlers/handle-message.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -937,7 +803,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/lib/handler-finder.ts:10</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/handler-finder.ts#L10">events/lib/handler-finder.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -966,7 +832,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/help.ts:38</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/help.ts#L38">events/command-handlers/help.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1015,7 +881,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/join.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/join.ts#L18">events/command-handlers/join.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1064,7 +930,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/launch.ts:17</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/launch.ts#L17">events/command-handlers/launch.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1110,7 +976,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/leave.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/leave.ts#L18">events/command-handlers/leave.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1159,7 +1025,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/me.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/me.ts#L18">events/command-handlers/me.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1208,7 +1074,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/middleware/model-finder.ts:19</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/middleware/model-finder.ts#L19">middleware/model-finder.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1260,7 +1126,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/msg.ts:17</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/msg.ts#L17">events/command-handlers/msg.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1309,7 +1175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/nick.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/nick.ts#L18">events/command-handlers/nick.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1358,7 +1224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/middleware/404.ts:15</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/middleware/404.ts#L15">middleware/404.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1401,7 +1267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-command.ts:15</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-command.ts#L15">events/event-handlers/handle-command.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1424,50 +1290,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="patchrecord" class="tsd-anchor"></a>
-					<h3>patch<wbr>Record</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">patch<wbr>Record<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRequest</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:95</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Patch a new record - does not upsert
-									Update a record - upserts if the record does not exist</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">IRequest</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="room" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> room</h3>
@@ -1478,7 +1300,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/command-handlers/room.ts:18</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/command-handlers/room.ts#L18">events/command-handlers/room.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1517,49 +1339,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="roothandler" class="tsd-anchor"></a>
-					<h3>root<wbr>Handler</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">root<wbr>Handler<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Request</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:36</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Display a home page</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">Request</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="sendtoroom" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> send<wbr>ToRoom</h3>
@@ -1571,7 +1350,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/lib/send-to-room.ts:12</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/send-to-room.ts#L12">events/lib/send-to-room.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1611,7 +1390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/lib/__mocks__/send-to-room.ts:3</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/__mocks__/send-to-room.ts#L3">events/lib/__mocks__/send-to-room.ts:3</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1660,7 +1439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/lib/send-to-user.ts:13</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/lib/send-to-user.ts#L13">events/lib/send-to-user.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1717,7 +1496,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/middleware/500.ts:16</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/middleware/500.ts#L16">middleware/500.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1766,7 +1545,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/api/event-handlers/handle-connection.ts:23</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/handle-connection.ts#L23">events/event-handlers/handle-connection.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1799,7 +1578,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/server.ts:46</li>
+									<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/server.ts#L47">server.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1812,49 +1591,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="updaterecord" class="tsd-anchor"></a>
-					<h3>update<wbr>Record</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Record<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRequest</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NextFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/api/v1.router.ts:78</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Update a record - upserts if the record does not exist</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">IRequest</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Extended Express request object</p>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express response object</p>
-									</div>
-								</li>
-								<li>
-									<h5>next: <span class="tsd-signature-type">NextFunction</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Express middleware function</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Object literals</h2>
@@ -1864,7 +1600,7 @@
 					<div class="tsd-signature tsd-kind-icon">mock<wbr>Socket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/api/event-handlers/__mocks__/handle-message.ts:8</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/__mocks__/handle-message.ts#L8">events/event-handlers/__mocks__/handle-message.ts:8</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -1873,7 +1609,7 @@
 						<div class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Mock</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;jest.fn()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/api/event-handlers/__mocks__/handle-message.ts:9</li>
+								<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/__mocks__/handle-message.ts#L9">events/event-handlers/__mocks__/handle-message.ts:9</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1883,7 +1619,7 @@
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;Math.random().toString()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/api/event-handlers/__mocks__/handle-message.ts:10</li>
+								<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/__mocks__/handle-message.ts#L10">events/event-handlers/__mocks__/handle-message.ts:10</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1893,7 +1629,7 @@
 						<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Mock</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;jest.fn()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/api/event-handlers/__mocks__/handle-message.ts:11</li>
+								<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/events/event-handlers/__mocks__/handle-message.ts#L11">events/event-handlers/__mocks__/handle-message.ts:11</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1904,7 +1640,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/index.ts:12</li>
+							<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L12">index.ts:12</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -1913,7 +1649,7 @@
 						<div class="tsd-signature tsd-kind-icon">use<wbr>Create<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/index.ts:13</li>
+								<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L13">index.ts:13</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1923,7 +1659,7 @@
 						<div class="tsd-signature tsd-kind-icon">use<wbr>New<wbr>Url<wbr>Parser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/index.ts:14</li>
+								<li>Defined in <a href="https://github.com/hubbub-community/hubbub-chat-server/blob/1c1ec90/src/index.ts#L14">index.ts:14</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1942,6 +1678,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
 						<a href="classes/appinfomodel.html" class="tsd-kind-icon">App<wbr>Info<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/controllers.html" class="tsd-kind-icon">Controllers</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/httpexception.html" class="tsd-kind-icon">Http<wbr>Exception</a>
@@ -2027,12 +1766,6 @@
 					<li class=" tsd-kind-function">
 						<a href="globals.html#about" class="tsd-kind-icon">about</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#createrecord" class="tsd-kind-icon">create<wbr>Record</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#deleterecord" class="tsd-kind-icon">delete<wbr>Record</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#details" class="tsd-kind-icon">details</a>
 					</li>
@@ -2041,9 +1774,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#fallback" class="tsd-kind-icon">fallback</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#getrecords" class="tsd-kind-icon">get<wbr>Records</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#handlecommand" class="tsd-kind-icon">handle<wbr>Command</a>
@@ -2093,14 +1823,8 @@
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parse" class="tsd-kind-icon">parse</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#patchrecord" class="tsd-kind-icon">patch<wbr>Record</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#room" class="tsd-kind-icon">room</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#roothandler" class="tsd-kind-icon">root<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#sendtoroom" class="tsd-kind-icon">send<wbr>ToRoom</a>
@@ -2116,9 +1840,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#start" class="tsd-kind-icon">start</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#updaterecord" class="tsd-kind-icon">update<wbr>Record</a>
 					</li>
 					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="globals.html#mocksocket" class="tsd-kind-icon">mock<wbr>Socket</a>
