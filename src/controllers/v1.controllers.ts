@@ -1,6 +1,11 @@
 import { NextFunction, Response } from 'express-serve-static-core';
 import { IRequest } from '../types/global';
 
+/**
+ * `Controllers` methods expect an instance of a class that extends `MongooseModel` to be
+ * appended to the `req`. That class's methods are called as appropriate for each request.
+ * @class Controllers
+ */
 class Controllers {
   /**
    * Display a home page
