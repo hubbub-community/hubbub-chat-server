@@ -44,7 +44,7 @@ import serverError from './middleware/500';
 app.use('*', notFound);
 app.use(serverError);
 
-function start(port: string) {
+function start(port: string): Server {
   return server.listen(port, () => {
     console.log(`You are connected to the Express server on port ${port}...`);
     console.log(`Socket.io server up and running!`);

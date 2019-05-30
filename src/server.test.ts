@@ -1,5 +1,7 @@
+import start from './server';
+
 describe('Test placeholder', () => {
   it('should hold the place', () => {
-    expect(true).toBeTruthy();
+    expect(typeof start).toBe('function');
   });
 });
