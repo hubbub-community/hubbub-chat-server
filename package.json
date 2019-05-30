@@ -12,6 +12,7 @@
     "watch": "nodemon --config './nodemon.json'",
     "test": "jest --coverage --verbose",
     "test-watch": "jest --coverage --verbose --watch",
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage --language typescript --token c0c23dd830ee48aca0489605cf344548",
     "lint": "tslint -c './tslint.json' 'src/**/*.{ts,tsx}'",
     "build": "rm -rf 'build'; tsc -b; npm run doc",
     "doc": "rm -rf 'docs/*'; npx typedoc --mode 'file' --out 'docs/' 'src/'; cp -r docs/* 'build/docs/'"
@@ -30,7 +31,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "export CI=true && npm run build && lint-staged && npm run test",
-      "pre-push": "export CI=true && npm run build && lint-staged && npm run test"
+      "pre-push": "export CI=true && npm run build && lint-staged && npm run test-with-coverage"
     }
   },
   "lint-staged": {
@@ -41,6 +42,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
+    "codacy-coverage": "^3.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "emojic": "^1.1.15",
