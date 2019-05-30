@@ -4,7 +4,7 @@
  */
 
 import { NextFunction, Response } from 'express-serve-static-core';
-import { IRequest } from '../global';
+import { IRequest } from '../types/global';
 // import { Document, Model, Schema } from 'mongoose';
 
 /**

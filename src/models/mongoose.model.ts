@@ -1,5 +1,5 @@
 import { Document, DocumentQuery, Model, Query } from 'mongoose';
-import * as t from '../global';
+import * as t from '../types/global';
 
 // TODO: All I/O types should be defined more explicitly.
 
