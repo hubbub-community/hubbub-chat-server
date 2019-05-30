@@ -13,7 +13,7 @@
     "noEmit": false,
     "noImplicitAny": true,
     "outDir": "./build",
-    "removeComments": false,
+    "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": false,
@@ -21,7 +21,6 @@
     "strictNullChecks": true,
     "target": "es5"
   },
-  "types": ["src/**/*.d.ts"],
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/**/*.test.ts"]
+  "exclude": ["node_modules", "**/__mocks__/**", "src/**/*.test.ts"]
 }

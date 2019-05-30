@@ -8,15 +8,14 @@ import { IRequest } from '../global';
 // import { Document, Model, Schema } from 'mongoose';
 
 /**
- * Model Finder Middleware
- * Evaluates req.params.model (i.e. /api/v1/:model/) and returns an instance of the specified model.
- * Because node require is cached, the instance will only be created once, no matter how many times a model is called for.
- * In the event the model is not found, node will throw a "MODULE_NOT_FOUND" error which the error middleware in the server will pick up.
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * Model Finder Middleware evaluates `req.params.model` (i.e. `/api/v1/:model`) and attaches
+ * an instance of the specified model to an extended Request object.
+ * In the event the model is not found, Node will throw a `MODULE_NOT_FOUND` error that the error
+ * middleware in the server will pick up.
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
-
 const modelFinder = async (
   req: IRequest,
   res: Response,

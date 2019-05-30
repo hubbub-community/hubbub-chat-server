@@ -6,13 +6,14 @@ import population from '../lib/population';
 import sendToRoom from '../lib/send-to-room';
 import sendToUser from '../lib/send-to-user';
 
-/***
+/**
  * Move a user to an extant room if appropriate
+ * @exports
  * @function
  * @name join
  * @param arg {string} The name of the room to join
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
  */
 const join = (arg: string, socket: Socket, io: Server): void => {
   const username: TUsername = population.getUsername(socket.id);

@@ -14,9 +14,11 @@ import population from '../lib/population';
 
 /**
  * Set a standard greeting, given a username
+ * @exports
  * @function
  * @name setGreeting
  * @param username {string} The user's username
+ * @returns {string}
  */
 export const setGreeting = (username: TUsername): string => {
   // const smiley = chalk.bold.yellow(emojic.grin);

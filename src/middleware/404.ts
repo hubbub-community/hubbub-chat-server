@@ -8,11 +8,9 @@ import HttpException from './http-exception';
 
 /**
  * Sends a 404 response
- * @function
- * @name notFoundMiddleware
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express next function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function notFoundMiddleware(
   req: Request,
@@ -24,11 +22,6 @@ function notFoundMiddleware(
   // res.setHeader('Content-Type', 'application/json');
   // res.status(status).send(JSON.stringify({ status, message }));
   next(new HttpException(status, message));
-  /*
-   * Why not
-   *
-   * ?
-   */
 }
 
 export default notFoundMiddleware;

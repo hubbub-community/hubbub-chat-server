@@ -4,14 +4,12 @@ import { TSocketId } from '../../global';
 
 /**
  * Sends a direct message to a single user
- * @function
- * @name sendToUser
- * @param message {string} The message for the user
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
- * @param id {TId} The `socket.id` of the recipient if they did not initiate the event
+ * @event output Triggered with the message argument
+ * @param message The message for the user
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
+ * @param id The `socket.id` of the recipient if they did not initiate the event
  */
-
 const sendToUser = (
   message: string,
   socket: Socket,

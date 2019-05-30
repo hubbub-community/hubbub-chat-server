@@ -28,6 +28,7 @@ ${chalk.underline.bold('Chat Commands')}
 
 /**
  * Display a list of available commands to the user
+ * @exports
  * @function
  * @name help
  * @param arg {null} Unused parameter

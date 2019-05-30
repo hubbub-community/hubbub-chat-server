@@ -6,13 +6,14 @@ import population from '../lib/population';
 import sendToRoom from '../lib/send-to-room';
 import sendToUser from '../lib/send-to-user';
 
-/***
+/**
  * Move a user from a room to the Lobby
+ * @exports
  * @function
  * @name leave
  * @param arg {null} Unused parameter
- * @param socket {object} The socket object from the client event
- * @param io {object} The server-side Socket.io instance
+ * @param socket {Socket} The socket object from the client event
+ * @param io {Server} The server-side Socket.io instance
  */
 const leave = (arg: null = null, socket: Socket, io: Server): void => {
   const username = population.getUsername(socket.id);

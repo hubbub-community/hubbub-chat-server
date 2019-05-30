@@ -8,12 +8,10 @@ import HttpException from './http-exception';
 
 /**
  * Error 500 handler - Returns a JSON object on a server error
- * @function
- * @name serverErrorMiddleware
- * @param err {HttpException} Extended Express error object
- * @param req {Request} Express request object
- * @param res {Response} Express response object
- * @param next {NextFunction} Express middleware function
+ * @param err Extended Error object
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function serverErrorMiddleware(
   err: HttpException,

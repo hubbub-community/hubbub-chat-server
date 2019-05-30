@@ -1,3 +1,8 @@
+/**
+ * v1 REST Controllers
+ * @module api/v1.router
+ */
+
 import express, { Router } from 'express';
 
 // Create a router instance
@@ -24,11 +29,9 @@ router.delete(`/api/v1/:model/:id`, deleteRecord);
 
 /**
  * Display a home page
- * @function
- * @name home
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function rootHandler(req: Request, res: Response, next: NextFunction): void {
   const clientUrl: string = 'https://github.com/node-hub/dumb-client';
@@ -39,11 +42,9 @@ function rootHandler(req: Request, res: Response, next: NextFunction): void {
 
 /**
  * Get all or one record
- * @function
- * @name getAll
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function getRecords(req: IRequest, res: Response, next: NextFunction): void {
   const name = req.params.id;
@@ -55,11 +56,9 @@ function getRecords(req: IRequest, res: Response, next: NextFunction): void {
 
 /**
  * Create a new record
- * @function
- * @name createRecord
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function createRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
@@ -72,11 +71,9 @@ function createRecord(req: IRequest, res: Response, next: NextFunction): void {
 
 /**
  * Update a record - upserts if the record does not exist
- * @function
- * @name updateRecord
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function updateRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
@@ -91,11 +88,9 @@ function updateRecord(req: IRequest, res: Response, next: NextFunction): void {
 /**
  * Patch a new record - does not upsert
  * Update a record - upserts if the record does not exist
- * @function
- * @name patchRecord
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function patchRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { body } = req;
@@ -109,11 +104,9 @@ function patchRecord(req: IRequest, res: Response, next: NextFunction): void {
 
 /**
  * Delete a record
- * @function
- * @name deleteRecord
- * @param req {object} Express request object
- * @param res {object} Express response object
- * @param next {function} Express middleware function
+ * @param req Extended Express request object
+ * @param res Express response object
+ * @param next Express middleware function
  */
 function deleteRecord(req: IRequest, res: Response, next: NextFunction): void {
   const { id } = req.params;

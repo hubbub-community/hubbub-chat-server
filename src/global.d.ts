@@ -1,13 +1,13 @@
-type TCommandArg = string | null;
-type TRoomName = string;
-type TRoomNames = string[];
-type TSchemaName = string;
-type TSocketId = string | null;
-type TTotalRooms = number;
-type TTotalUsers = number;
+export type TCommandArg = string | null;
+export type TRoomName = string;
+export type TRoomNames = string[];
+export type TSchemaName = string;
+export type TSocketId = string | null;
+export type TTotalRooms = number;
+export type TTotalUsers = number;
 export type TUsername = string;
 
-interface IGetDetails {
+export interface IGetDetails {
   roomNames: TRoomNames;
   totalRooms: TTotalRooms;
   totalUsers: TTotalUsers;
@@ -15,37 +15,37 @@ interface IGetDetails {
   usernamesPerRoom: IUserNamesPerRoom;
 }
 
-interface IHandlerFinder {
+export interface IHandlerFinder {
   default: (arg: TCommandArg, socket: Socket, io: Server) => any;
 }
 
-interface IParse {
+export interface IParse {
   cmd: string;
   arg: TCommandArg;
 }
 
 // { roomName: { leader: socketId, users: [ socketId, socketId, socketId ] }, ... }
-interface IRooms {
+export interface IRooms {
   [key: string]: {
     leader: TSocketId;
     users: TSocketId[];
   };
 }
 
-interface ISocketIdsPerRoom {
+export interface ISocketIdsPerRoom {
   [key: string]: TSocketId[];
 }
 
 // { socketId: username, socketId: username, ... }
-interface IUsers {
+export interface IUsers {
   [key: string]: string;
 }
 
-interface IUserCountPerRoom {
+export interface IUserCountPerRoom {
   [key: string]: number;
 }
 
-interface IUserNamesPerRoom {
+export interface IUserNamesPerRoom {
   [key: string]: string[];
 }
 
@@ -53,7 +53,7 @@ interface IUserNamesPerRoom {
  * TODO: Add a `model` property onto the existing Express Request type.
  * TODO: The type of `model` should be formalized.
  */
-interface IRequest {
+export interface IRequest {
   body?: any;
   params?: any;
   model?: any;
