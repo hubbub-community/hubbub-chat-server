@@ -4,7 +4,7 @@
  */
 
 import { MongoMemoryServer } from 'mongodb-memory-server'
-import mongoose, { Mongoose } from 'mongoose'
+import mongoose from 'mongoose'
 import supertest, { SuperTest, Test } from 'supertest'
 
 /** @class SuperGoose */
@@ -19,8 +19,8 @@ class SuperGoose {
     this.mongoServer = new MongoMemoryServer()
   }
 
-  /** Typically used in Jest beforeAll hook */
-  public startDB = async (): Promise<void> => {
+  /** Typically used in Jest `beforeAll` hook */
+  public async startDB(): Promise<void> {
     const mongoUri: string = await this.mongoServer.getConnectionString()
 
     const mongooseOptions: object = {
@@ -35,8 +35,8 @@ class SuperGoose {
     })
   }
 
-  /** Typically used in Jest afterAll hook */
-  public stopDB = (): void => {
+  /** Typically used in Jest `afterAll` hook */
+  public stopDB(): void {
     mongoose.disconnect()
     this.mongoServer.stop()
   }
