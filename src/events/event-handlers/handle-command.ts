@@ -1,8 +1,8 @@
-import { Server, Socket } from 'socket.io';
+import { Server, Socket } from 'socket.io'
 
-import { IHandlerFinder, IParse } from '../../types/global';
+import { IHandlerFinder, IParse } from '../../types/global'
 
-import handlerFinder from '../lib/handler-finder';
+import handlerFinder from '../lib/handler-finder'
 
 /**
  * Separates a command's command and argument
@@ -14,16 +14,16 @@ import handlerFinder from '../lib/handler-finder';
  */
 export const parse = (line: string): IParse => {
   // Grab a case insensitive command
-  const slashWord: RegExpMatchArray = line.match(/[a-z]+\b/i) || [];
+  const slashWord: RegExpMatchArray = line.match(/[a-z]+\b/i) || []
   if (slashWord && slashWord.length >= 1) {
-    const cmd: string = slashWord[0];
+    const cmd: string = slashWord[0]
     // Grab the arguments
-    const arg: string = line.slice(cmd.length + 2, line.length);
+    const arg: string = line.slice(cmd.length + 2, line.length)
     // Return them
-    return { cmd, arg };
+    return { cmd, arg }
   }
-  return { cmd: 'fallback', arg: null };
-};
+  return { cmd: 'fallback', arg: null }
+}
 
 /**
  * Middleware to process commands from the user.
@@ -42,14 +42,14 @@ const handleCommand = async (
 ): Promise<void> => {
   try {
     // Parse the line for command and argument
-    const { cmd, arg } = parse(line);
+    const { cmd, arg } = parse(line)
     // Pick the right handler based on the command
-    const handler: IHandlerFinder = await handlerFinder(cmd);
+    const handler: IHandlerFinder = await handlerFinder(cmd)
     // Call the resulting handler function with the given arguments
-    handler.default(arg, socket, io);
+    handler.default(arg, socket, io)
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-};
+}
 
-export default handleCommand;
+export default handleCommand

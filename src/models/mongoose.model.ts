@@ -1,5 +1,5 @@
-import { Document, DocumentQuery, Model, Query } from 'mongoose';
-import * as t from '../types/global';
+import { Document, DocumentQuery, Model, Query } from 'mongoose'
+import * as t from '../types/global'
 
 // TODO: All I/O types should be defined more explicitly.
 
@@ -11,10 +11,10 @@ import * as t from '../types/global';
  */
 class MongooseModel {
   /** A Mongoose schema */
-  public schema: Model<Document, {}>;
+  public schema: Model<Document, {}>
   /** Instantiate a new model with a Mongoose schema to operate on that collection. */
   constructor(schema: Model<Document, {}>) {
-    this.schema = schema;
+    this.schema = schema
   }
 
   /**
@@ -24,7 +24,7 @@ class MongooseModel {
    * @memberof MongooseModel
    */
   public get(name: t.TSchemaName): DocumentQuery<Document[], Document, {}> {
-    return name ? this.schema.find({ name }) : this.schema.find();
+    return name ? this.schema.find({ name }) : this.schema.find()
   }
 
   /**
@@ -34,7 +34,7 @@ class MongooseModel {
    * @memberof MongooseModel
    */
   public post(obj: object): Promise<Document> {
-    return new this.schema(obj).save();
+    return new this.schema(obj).save()
   }
 
   /**
@@ -49,7 +49,7 @@ class MongooseModel {
     id: string,
     obj: object
   ): DocumentQuery<Document | null, Document, {}> {
-    return this.schema.findByIdAndUpdate(id, obj, { new: true });
+    return this.schema.findByIdAndUpdate(id, obj, { new: true })
   }
 
   /**
@@ -60,7 +60,7 @@ class MongooseModel {
    * @memberof MongooseModel
    */
   public put(id: string, obj: object): Query<any> {
-    return this.schema.findByIdAndUpdate(id, obj, { new: true, upsert: true });
+    return this.schema.findByIdAndUpdate(id, obj, { new: true, upsert: true })
   }
 
   /**
@@ -70,8 +70,8 @@ class MongooseModel {
    * @memberof MongooseModel
    */
   public delete(id: string): DocumentQuery<Document | null, Document, {}> {
-    return this.schema.findByIdAndDelete(id);
+    return this.schema.findByIdAndDelete(id)
   }
 }
 
-export default MongooseModel;
+export default MongooseModel

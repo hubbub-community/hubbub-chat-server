@@ -1,6 +1,6 @@
-import { Server, Socket } from 'socket.io';
+import { Server, Socket } from 'socket.io'
 
-import { TSocketId } from '../../types/global';
+import { TSocketId } from '../../types/global'
 
 /**
  * Sends a direct message to a single user
@@ -16,12 +16,12 @@ const sendToUser = (
   io: Server,
   id: TSocketId
 ): void => {
-  const payload = message;
+  const payload = message
   if (id) {
-    io.to(id).emit('output', payload);
+    io.to(id).emit('output', payload)
   } else {
-    io.to(socket.id).emit('output', payload);
+    io.to(socket.id).emit('output', payload)
   }
-};
+}
 
-export default sendToUser;
+export default sendToUser

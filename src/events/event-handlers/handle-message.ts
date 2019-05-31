@@ -1,9 +1,9 @@
-import chalk from 'chalk';
-import { Socket } from 'socket.io';
+import chalk from 'chalk'
+import { Socket } from 'socket.io'
 
-import { TRoomName, TUsername } from '../../types/global';
-import population from '../lib/population';
-import sendToRoom from '../lib/send-to-room';
+import { TRoomName, TUsername } from '../../types/global'
+import population from '../lib/population'
+import sendToRoom from '../lib/send-to-room'
 
 /**
  * Relay a chat input to the user's room.
@@ -17,12 +17,12 @@ import sendToRoom from '../lib/send-to-room';
  * @param socket {Socket} The socket object from the client event
  */
 const handleMessage = (line: string, socket: Socket): void => {
-  const username: TUsername = population.getUsername(socket.id);
-  const room: TRoomName = population.getRoom(socket.id);
-  const designator: string = chalk.yellow(`‹${username}›`);
-  const message: string = `${designator} ${line}`;
+  const username: TUsername = population.getUsername(socket.id)
+  const room: TRoomName = population.getRoom(socket.id)
+  const designator: string = chalk.yellow(`‹${username}›`)
+  const message: string = `${designator} ${line}`
 
-  sendToRoom(message, room, socket);
-};
+  sendToRoom(message, room, socket)
+}
 
-export default handleMessage;
+export default handleMessage

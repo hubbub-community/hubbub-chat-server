@@ -1,6 +1,6 @@
-import { Socket } from 'socket.io';
+import { Socket } from 'socket.io'
 
-import { TRoomName } from '../../types/global';
+import { TRoomName } from '../../types/global'
 
 /**
  * Sends a message to everyone in the room except the user
@@ -10,7 +10,7 @@ import { TRoomName } from '../../types/global';
  * @param socket The socket object from the client event
  */
 const sendToRoom = (message: string, room: TRoomName, socket: Socket): void => {
-  socket.to(room).emit('output', message);
-};
+  socket.to(room).emit('output', message)
+}
 
-export default sendToRoom;
+export default sendToRoom

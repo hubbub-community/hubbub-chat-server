@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import { Server, Socket } from 'socket.io';
+import chalk from 'chalk'
+import { Server, Socket } from 'socket.io'
 
-import sendToUser from '../lib/send-to-user';
+import sendToUser from '../lib/send-to-user'
 
 /**
  * Warn the user when they have used an invalid command
@@ -15,8 +15,8 @@ import sendToUser from '../lib/send-to-user';
 const fallback = (arg: null = null, socket: Socket, io: Server): void => {
   const message: string = `Type ${chalk.cyan(
     '/help'
-  )} to see a list of available commands.\n`;
-  sendToUser(message, socket, io, null);
-};
+  )} to see a list of available commands.\n`
+  sendToUser(message, socket, io, null)
+}
 
-export default fallback;
+export default fallback

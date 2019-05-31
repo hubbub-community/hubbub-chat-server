@@ -1,5 +1,5 @@
-import { NextFunction, Response } from 'express-serve-static-core';
-import { IRequest } from '../types/global';
+import { NextFunction, Response } from 'express-serve-static-core'
+import { IRequest } from '../types/global'
 
 /**
  * `Controllers` methods expect an instance of a class that extends `MongooseModel` to be
@@ -15,12 +15,12 @@ class Controllers {
    * @memberof Controllers
    */
   public rootHandler(req: IRequest, res: Response, next: NextFunction): void {
-    const clientUrl: string = process.env.CLIENT_URL || '';
+    const clientUrl: string = process.env.CLIENT_URL || ''
     res
       .status(200)
       .send(
         `Welcome to the Hubbub server!\nDownload the client at ${clientUrl}`
-      );
+      )
   }
 
   /**
@@ -31,11 +31,11 @@ class Controllers {
    * @memberof Controllers
    */
   public getRecords(req: IRequest, res: Response, next: NextFunction): void {
-    const name = req.params.id;
+    const name = req.params.id
     req.model
       .get(name)
       .then((results: object) => res.status(200).send(results))
-      .catch(next);
+      .catch(next)
   }
 
   /**
@@ -46,12 +46,12 @@ class Controllers {
    * @memberof Controllers
    */
   public createRecord(req: IRequest, res: Response, next: NextFunction): void {
-    const { body } = req;
+    const { body } = req
     // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .post(body)
       .then((result: object) => res.status(200).send(result))
-      .catch(next);
+      .catch(next)
   }
 
   /**
@@ -62,13 +62,13 @@ class Controllers {
    * @memberof Controllers
    */
   public updateRecord(req: IRequest, res: Response, next: NextFunction): void {
-    const { body } = req;
-    const { id } = req.params;
+    const { body } = req
+    const { id } = req.params
     // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .put(id, body)
       .then((result: object) => res.status(200).send(result))
-      .catch(next);
+      .catch(next)
   }
 
   /**
@@ -80,13 +80,13 @@ class Controllers {
    * @memberof Controllers
    */
   public patchRecord(req: IRequest, res: Response, next: NextFunction): void {
-    const { body } = req;
-    const { id } = req.params;
+    const { body } = req
+    const { id } = req.params
     // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .patch(id, body)
       .then((result: object) => res.status(200).send(result))
-      .catch(next);
+      .catch(next)
   }
 
   /**
@@ -97,13 +97,13 @@ class Controllers {
    * @memberof Controllers
    */
   public deleteRecord(req: IRequest, res: Response, next: NextFunction): void {
-    const { id } = req.params;
+    const { id } = req.params
     // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .delete(id)
       .then((result: object) => res.status(200).send(result))
-      .catch(next);
+      .catch(next)
   }
 }
 
-export default new Controllers();
+export default new Controllers()

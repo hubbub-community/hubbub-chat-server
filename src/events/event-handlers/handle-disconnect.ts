@@ -1,7 +1,7 @@
-import { Socket } from 'socket.io';
+import { Socket } from 'socket.io'
 
-import { TRoomName } from '../../types/global';
-import population from '../lib/population';
+import { TRoomName } from '../../types/global'
+import population from '../lib/population'
 
 /**
  * Removes the user from the population memory pool
@@ -13,14 +13,14 @@ import population from '../lib/population';
  */
 const handleDisconnect = (socket: Socket): void => {
   try {
-    const room: TRoomName = population.getRoom(socket.id);
-    population.depopulateRoom(socket.id, room);
-    population.deleteUser(socket.id);
-    socket.leave(room);
-    console.log(`${socket.id} disconnected...`);
+    const room: TRoomName = population.getRoom(socket.id)
+    population.depopulateRoom(socket.id, room)
+    population.deleteUser(socket.id)
+    socket.leave(room)
+    console.log(`${socket.id} disconnected...`)
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-};
+}
 
-export default handleDisconnect;
+export default handleDisconnect
