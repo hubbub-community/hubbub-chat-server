@@ -1,4 +1,4 @@
-import * as t from '../../types/global';
+import * as t from '../../types/global'
 
 /**
  * This class is used to track and manage users in the chat environment.
@@ -6,11 +6,11 @@ import * as t from '../../types/global';
  * @class Population
  */
 class Population {
-  public users: t.IUsers = {};
-  public rooms: t.IRooms = {};
+  public users: t.IUsers = {}
+  public rooms: t.IRooms = {}
   constructor() {
-    this.users = {};
-    this.rooms = {};
+    this.users = {}
+    this.rooms = {}
   }
 
   /**
@@ -22,7 +22,7 @@ class Population {
    */
   public addUser(socketId: t.TSocketId, username: t.TUsername): void {
     if (typeof socketId === 'string' && typeof username === 'string') {
-      this.users[socketId] = username;
+      this.users[socketId] = username
     }
   }
 
@@ -38,10 +38,10 @@ class Population {
   public populateRoom(socketId: t.TSocketId, room: t.TRoomName): void {
     // If the room already exists
     if (this.rooms[room]) {
-      this.rooms[room].users.push(socketId);
+      this.rooms[room].users.push(socketId)
       // If the room doesn't exist
     } else {
-      this.rooms[room] = { leader: socketId, users: [socketId] };
+      this.rooms[room] = { leader: socketId, users: [socketId] }
     }
   }
 
@@ -53,7 +53,7 @@ class Population {
    */
   public deleteUser(socketId: t.TSocketId): void {
     if (typeof socketId === 'string') {
-      delete this.users[socketId];
+      delete this.users[socketId]
     }
   }
 
@@ -71,20 +71,20 @@ class Population {
   public depopulateRoom(socketId: t.TSocketId, room: t.TRoomName): void {
     if (room && this.rooms[room]) {
       // Are we removing the leader?
-      const { leader } = this.rooms[room];
+      const { leader } = this.rooms[room]
       if (socketId === leader) {
         // Make the next-most senior person in the room
         // the leader
-        const newLeader = this.rooms[room].users[1];
-        this.rooms[room].leader = newLeader;
+        const newLeader = this.rooms[room].users[1]
+        this.rooms[room].leader = newLeader
       }
-      const index = this.rooms[room].users.findIndex(user => user === socketId);
-      this.rooms[room].users.splice(index, 1);
+      const index = this.rooms[room].users.findIndex(user => user === socketId)
+      this.rooms[room].users.splice(index, 1)
 
       // If the room is empty
       if (room && this.rooms[room].users.length === 0) {
         // delete it
-        delete this.rooms[room];
+        delete this.rooms[room]
       }
     }
   }
@@ -101,34 +101,34 @@ class Population {
    * @memberof Population
    */
   public getDetails(): t.IGetDetails {
-    const roomNames: t.TRoomNames = Object.keys(this.rooms);
-    const totalRooms: t.TTotalRooms = roomNames.length;
-    const totalUsers: t.TTotalUsers = Object.keys(this.users).length;
+    const roomNames: t.TRoomNames = Object.keys(this.rooms)
+    const totalRooms: t.TTotalRooms = roomNames.length
+    const totalUsers: t.TTotalUsers = Object.keys(this.users).length
 
-    const userCountPerRoom: t.IUserCountPerRoom = {};
-    const socketIdsPerRoom: t.ISocketIdsPerRoom = {};
+    const userCountPerRoom: t.IUserCountPerRoom = {}
+    const socketIdsPerRoom: t.ISocketIdsPerRoom = {}
 
     // Populate the two empty objects
     roomNames.forEach(
       (room: t.TRoomName): void => {
-        socketIdsPerRoom[room] = this.rooms[room].users;
-        userCountPerRoom[room] = this.rooms[room].users.length;
+        socketIdsPerRoom[room] = this.rooms[room].users
+        userCountPerRoom[room] = this.rooms[room].users.length
       }
-    );
+    )
 
-    const usernamesPerRoom: t.IUserNamesPerRoom = {};
+    const usernamesPerRoom: t.IUserNamesPerRoom = {}
 
     for (const room in socketIdsPerRoom) {
       if (socketIdsPerRoom[room]) {
         usernamesPerRoom[room] = socketIdsPerRoom[room].map(
           (socketId: t.TSocketId) => {
             if (typeof socketId === 'string') {
-              return this.users[socketId];
+              return this.users[socketId]
             } else {
-              return 'Error getting details';
+              return 'Error getting details'
             }
           }
-        );
+        )
       }
     }
 
@@ -138,7 +138,7 @@ class Population {
       totalUsers,
       userCountPerRoom,
       usernamesPerRoom,
-    };
+    }
   }
 
   /**
@@ -157,8 +157,8 @@ class Population {
     oldRoom: t.TRoomName,
     newRoom: t.TRoomName
   ): void {
-    this.depopulateRoom(socketId, oldRoom);
-    this.populateRoom(socketId, newRoom);
+    this.depopulateRoom(socketId, oldRoom)
+    this.populateRoom(socketId, newRoom)
   }
 
   /**
@@ -171,10 +171,10 @@ class Population {
   public getRoom(socketId: t.TSocketId): t.TRoomName {
     for (const room in this.rooms) {
       if (this.rooms[room].users.includes(socketId)) {
-        return room;
+        return room
       }
     }
-    return `Error getting room for socketId ${socketId}`;
+    return `Error getting room for socketId ${socketId}`
   }
 
   /**
@@ -185,18 +185,18 @@ class Population {
    * @memberof Population
    */
   public getSocketId(username: t.TUsername): t.TSocketId {
-    const usersArr = Object.keys(this.users);
+    const usersArr = Object.keys(this.users)
 
     const targetSocketId: t.TSocketId =
       usersArr.find((socketId: t.TSocketId) => {
         if (typeof socketId === 'string') {
-          return this.users[socketId] === username;
+          return this.users[socketId] === username
         } else {
-          return false;
+          return false
         }
-      }) || null;
+      }) || null
 
-    return targetSocketId;
+    return targetSocketId
   }
 
   /**
@@ -208,9 +208,9 @@ class Population {
    */
   public getUsername(socketId: t.TSocketId): t.TUsername {
     if (typeof socketId === 'string') {
-      return this.users[socketId];
+      return this.users[socketId]
     } else {
-      return `Error getting username for socketId ${socketId}`;
+      return `Error getting username for socketId ${socketId}`
     }
   }
 
@@ -223,9 +223,9 @@ class Population {
    */
   public getLeader(room: t.TRoomName): t.TSocketId {
     if (room && this.rooms[room]) {
-      return this.rooms[room].leader;
+      return this.rooms[room].leader
     }
-    return `Error getting leader for room ${room}`;
+    return `Error getting leader for room ${room}`
   }
 
   /**
@@ -237,8 +237,8 @@ class Population {
    * @memberof Population
    */
   public isLeader(socketId: t.TSocketId, room: t.TRoomName): boolean {
-    const leader = this.getLeader(room);
-    return socketId === leader ? true : false;
+    const leader = this.getLeader(room)
+    return socketId === leader ? true : false
   }
 
   /**
@@ -249,7 +249,7 @@ class Population {
    * @memberof Population
    */
   public isRoom(room: t.TRoomName): boolean {
-    return this.rooms.hasOwnProperty(room) ? true : false;
+    return this.rooms.hasOwnProperty(room) ? true : false
   }
 
   /**
@@ -261,8 +261,8 @@ class Population {
    * @memberof Population
    */
   public isUsername(username: t.TUsername): boolean {
-    return this.getSocketId(username) ? true : false;
+    return this.getSocketId(username) ? true : false
   }
 }
 
-export default Population;
+export default Population

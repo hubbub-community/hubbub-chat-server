@@ -3,11 +3,11 @@
  * @module api/v1.events
  */
 
-import { Server, Socket } from 'socket.io';
+import { Server, Socket } from 'socket.io'
 
-import handleConnection from './event-handlers/handle-connection';
-import handleDisconnect from './event-handlers/handle-disconnect';
-import handleInput from './event-handlers/handle-input';
+import handleConnection from './event-handlers/handle-connection'
+import handleDisconnect from './event-handlers/handle-disconnect'
+import handleInput from './event-handlers/handle-input'
 
 /**
  * The Socket.io server entry point
@@ -20,14 +20,14 @@ const events = (io: Server): void => {
   io.on(
     'connection',
     (socket: Socket): void => {
-      console.log(`Socket connected with id ${socket.id}...`);
+      console.log(`Socket connected with id ${socket.id}...`)
 
-      handleConnection(socket, io);
+      handleConnection(socket, io)
 
-      socket.on('input', (line: string): void => handleInput(line, socket, io));
-      socket.on('disconnect', (): void => handleDisconnect(socket));
+      socket.on('input', (line: string): void => handleInput(line, socket, io))
+      socket.on('disconnect', (): void => handleDisconnect(socket))
     }
-  );
-};
+  )
+}
 
-export default events;
+export default events

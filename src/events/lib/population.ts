@@ -1,5 +1,5 @@
-import Population from './population-manager';
+import Population from './population-manager'
 
-const population: Population = new Population();
+const population: Population = new Population()
 
-export default population;
+export default population

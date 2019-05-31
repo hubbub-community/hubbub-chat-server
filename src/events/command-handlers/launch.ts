@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import { Server, Socket } from 'socket.io';
+import chalk from 'chalk'
+import { Server, Socket } from 'socket.io'
 
-import sendToUser from '../lib/send-to-user';
+import sendToUser from '../lib/send-to-user'
 
 /**
  * Launch fallback
@@ -20,8 +20,8 @@ const launch = (arg: null = null, socket: Socket, io: Server): void => {
   )}
 For example:
 ${chalk.cyan(`/launch ${process.env.EXAMPLE_APP}`)}
-`;
-  sendToUser(message, socket, io, null);
-};
+`
+  sendToUser(message, socket, io, null)
+}
 
-export default launch;
+export default launch

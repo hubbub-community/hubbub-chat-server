@@ -1,8 +1,8 @@
-import chalk from 'chalk';
-import { Server, Socket } from 'socket.io';
+import chalk from 'chalk'
+import { Server, Socket } from 'socket.io'
 
 // const emojic = require('emojic');
-import sendToUser from '../lib/send-to-user';
+import sendToUser from '../lib/send-to-user'
 
 const instructions: string = `
 ${chalk.underline.bold('Chat Commands')}
@@ -24,7 +24,7 @@ ${chalk.underline.bold('Chat Commands')}
 )}
 /room ${chalk.green(
   'name'
-)} ← Create and automatically join a room called ${chalk.green('name')}\n`;
+)} ← Create and automatically join a room called ${chalk.green('name')}\n`
 
 /**
  * Display a list of available commands to the user
@@ -36,7 +36,7 @@ ${chalk.underline.bold('Chat Commands')}
  * @param io {Server} The server-side Socket.io instance
  */
 const help = (arg: null = null, socket: Socket, io: Server): void => {
-  sendToUser(instructions, socket, io, null);
-};
+  sendToUser(instructions, socket, io, null)
+}
 
-export default help;
+export default help

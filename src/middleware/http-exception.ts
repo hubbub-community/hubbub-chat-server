@@ -5,15 +5,15 @@
  */
 class HttpException extends Error {
   /** Status code */
-  public status: number;
+  public status: number
   /** Error message */
-  public message: string;
+  public message: string
   /** Create an HttpException error */
   constructor(status: number, message: string) {
-    super(message);
-    this.status = status;
-    this.message = message;
+    super(message)
+    this.status = status
+    this.message = message
   }
 }
 
-export default HttpException;
+export default HttpException
