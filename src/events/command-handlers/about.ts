@@ -4,16 +4,45 @@ import sendToUser from '../lib/send-to-user'
 
 /**
  * See information about the project and development team
- * @exports
- * @function
- * @name about
- * @param arg {null} Unused parameter
- * @param socket {Socket} The socket object from the client event
- * @param io {Server} The server-side Socket.io instance
+ * @param arg Unused parameter
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
  */
 
-const about = (arg: null = null, socket: Socket, io: Server): void => {
-  const message: string = `a`
+const about: (arg: null, socket: Socket, io: Server) => void = (
+  arg: null,
+  socket: Socket,
+  io: Server
+): void => {
+  const message = `
+==================================
+_        _    _         _    
+| |_ _  _| |__| |__ _  _| |__ 
+| ' \\ || | '_ \\ '_ \\ || | '_ \\
+|_||_\\_,_|_.__/_.__/\\_,_|_.__/
+                              
+==================================
+
+The Hubbub team is proud to launch
+the Hubbub platform, including the
+Hubbub Community Client and Hubbub
+Chat. We are:
+
+Joseph Wolfe, Alex White, and 
+Spencer Hirata
+
+|￣￣￣￣￣￣|  
+|     Eat    |
+|    Sleep   |
+|    Code    |
+|   Hubbub   | 
+|＿＿＿＿＿＿|
+(\\__/) || 
+(•ㅅ•) || 
+/     づ
+
+===================================
+`
   sendToUser(message, socket, io, null)
 }
 

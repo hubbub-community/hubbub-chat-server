@@ -13,14 +13,11 @@ import sendToUser from '../lib/send-to-user'
 /**
  * Display details to the user including their username,
  * their room, and the users they're with.
- * @exports
- * @function
- * @name details
  * @param arg {null} Unused parameter
  * @param socket {Socket} The socket object from the client event
  * @param io {Server} The server-side Socket.io instance
  */
-const details = (arg: null = null, socket: Socket, io: Server): void => {
+const details = (arg: null, socket: Socket, io: Server): void => {
   const populationDetails: IGetDetails = population.getDetails()
   const room: TRoomName = population.getRoom(socket.id)
   const username: TUsername = population.getUsername(socket.id)
