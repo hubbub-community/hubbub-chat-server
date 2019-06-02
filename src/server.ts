@@ -7,7 +7,7 @@
 import express from 'express'
 import { createServer, Server } from 'http'
 const app = express() // Express app
-const server: Server = createServer(app) // Integrated Express/Socket.io server
+export const server: Server = createServer(app) // Integrated Express/Socket.io server
 
 // Events
 import SocketIO from 'socket.io'
