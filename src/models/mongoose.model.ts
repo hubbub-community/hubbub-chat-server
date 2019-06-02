@@ -23,7 +23,7 @@ class MongooseModel {
    * @returns A record or all records.
    * @memberof MongooseModel
    */
-  public get(name: t.TSchemaName): DocumentQuery<Document[], Document, {}> {
+  public get(name?: t.TSchemaName): DocumentQuery<Document[], Document, {}> {
     return name ? this.schema.find({ name }) : this.schema.find()
   }
 
