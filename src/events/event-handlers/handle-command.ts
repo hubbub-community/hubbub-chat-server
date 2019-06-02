@@ -1,24 +1,25 @@
 import { Server, Socket } from 'socket.io'
 
-import { IHandlerFinder, IParse } from '../../types/global'
+import {
+  IHandlerFinder,
+  IParse,
+  TCommand,
+  TCommandArg,
+} from '../../types/global'
 
 import handlerFinder from '../lib/handler-finder'
 
 /**
  * Separates a command's command and argument
- * @export
- * @function
- * @name parse
- * @param line {string} A command input from the user
- * @returns {IParse}
+ * @param line A command input from the user
  */
 export const parse = (line: string): IParse => {
   // Grab a case insensitive command
   const slashWord: RegExpMatchArray = line.match(/[a-z]+\b/i) || []
   if (slashWord && slashWord.length >= 1) {
-    const cmd: string = slashWord[0]
+    const cmd: TCommand = slashWord[0]
     // Grab the arguments
-    const arg: string = line.slice(cmd.length + 2, line.length)
+    const arg: TCommandArg = line.slice(cmd.length + 2, line.length)
     // Return them
     return { cmd, arg }
   }
@@ -27,13 +28,9 @@ export const parse = (line: string): IParse => {
 
 /**
  * Middleware to process commands from the user.
- * @exports
- * @function
- * @name handleCommand
- * @param line {string} The input from the client
- * @param socket {Socket} The socket object from the client event
- * @param io {Server} The server-side Socket.io instance
- * @returns {Promise<void>}
+ * @param line The input from the client
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
  */
 const handleCommand = async (
   line: string,
