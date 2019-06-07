@@ -155,11 +155,16 @@ describe('`Population` class', () => {
 
     describe('`totalRooms` property', () => {
       it('should return a number equal to the number of `this.rooms` keys', () => {
+        // Two rooms to start
         const details: t.IGetDetails = p.getDetails()
         expect(details.totalRooms).toBe(2)
-        const user: t.TUsername = faker.random.number().toString()
+
+        // Add a user to another room and expect 3 total rooms
+        const socketId: t.TSocketId = faker.random.number().toString()
+        const username: t.TUsername = faker.random.word()
+        p.addUser(socketId, username)
         const room: t.TRoomName = faker.random.word()
-        p.populateRoom(user, room)
+        p.populateRoom(socketId, room)
         const newDetails: t.IGetDetails = p.getDetails()
         expect(newDetails.totalRooms).toBe(3)
       })
