@@ -109,12 +109,10 @@ class Population {
     const socketIdsPerRoom: t.ISocketIdsPerRoom = {}
 
     // Populate the two empty objects
-    roomNames.forEach(
-      (room: t.TRoomName): void => {
-        socketIdsPerRoom[room] = this.rooms[room].users
-        userCountPerRoom[room] = this.rooms[room].users.length
-      }
-    )
+    roomNames.forEach((room: t.TRoomName): void => {
+      socketIdsPerRoom[room] = this.rooms[room].users
+      userCountPerRoom[room] = this.rooms[room].users.length
+    })
 
     const usernamesPerRoom: t.IUserNamesPerRoom = {}
 
