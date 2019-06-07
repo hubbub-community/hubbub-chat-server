@@ -17,17 +17,14 @@ import handleInput from './event-handlers/handle-input'
  * @param io The server-side Socket.io instance
  */
 const events = (io: Server): void => {
-  io.on(
-    'connection',
-    (socket: Socket): void => {
-      console.log(`Socket connected with id ${socket.id}...`)
+  io.on('connection', (socket: Socket): void => {
+    console.log(`Socket connected with id ${socket.id}...`)
 
-      handleConnection(socket, io)
+    handleConnection(socket, io)
 
-      socket.on('input', (line: string): void => handleInput(line, socket, io))
-      socket.on('disconnect', (): void => handleDisconnect(socket))
-    }
-  )
+    socket.on('input', (line: string): void => handleInput(line, socket, io))
+    socket.on('disconnect', (): void => handleDisconnect(socket))
+  })
 }
 
 export default events
