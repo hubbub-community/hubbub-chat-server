@@ -21,11 +21,6 @@
     "strictNullChecks": true,
     "target": "es5"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": [
-    "node_modules",
-    "**/__mocks__/**",
-    "**/__tests__/**",
-    "**/*.test.ts"
-  ]
+  "include": ["src"],
+  "exclude": ["**/__mocks__/**", "**/__tests__/**"]
 }
