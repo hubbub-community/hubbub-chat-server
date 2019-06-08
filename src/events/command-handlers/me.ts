@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { Server, Socket } from 'socket.io'
 
 import { TRoomName, TUsername } from '../../types/global'
@@ -8,17 +7,15 @@ import sendToUser from '../lib/send-to-user'
 
 /**
  * Emit a user text-emote to their room ::shrugs::
- * @exports
- * @function
- * @name me
- * @param arg {string} The text-emote
- * @param socket {Socket} The socket object from the client event
- * @param io {Server} The server-side Socket.io instance
+ * @param arg The text-emote
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
  */
 const me = (arg: string, socket: Socket, io: Server): void => {
   const room: TRoomName = population.getRoom(socket.id)
   const username: TUsername = population.getUsername(socket.id)
-  const emote: string = chalk.magenta(`[${username}] ${arg}`)
+  const emote: string = `[${username}] ${arg}`
+
   sendToUser(emote, socket, io, socket.id)
   sendToRoom(emote, room, socket)
 }

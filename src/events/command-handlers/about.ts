@@ -9,11 +9,7 @@ import sendToUser from '../lib/send-to-user'
  * @param io The server-side Socket.io instance
  */
 
-const about: (arg: null, socket: Socket, io: Server) => void = (
-  arg: null,
-  socket: Socket,
-  io: Server
-): void => {
+const about = (arg: null = null, socket: Socket, io: Server): void => {
   const message = `
 ==================================
 _        _    _         _    
