@@ -2,7 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testPathIgnorePatterns: [
-    '<rootDir>/src/__tests__/',
+    '<rootDir>/node_modules/',
     '<rootDir>/build/',
     'supergoose',
   ],
