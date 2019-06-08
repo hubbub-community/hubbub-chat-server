@@ -6,10 +6,7 @@ import population from '../lib/population'
 /**
  * Removes the user from the population memory pool
  * and performs other cleanup
- * @exports
- * @function
- * @name handleDisconnect
- * @param socket {Socket} The socket object from the client event
+ * @param socket The socket object from the client event
  */
 const handleDisconnect = (socket: Socket): void => {
   try {

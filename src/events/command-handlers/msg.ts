@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { Server, Socket } from 'socket.io'
 
 import { TSocketId, TUsername } from '../../types/global'
@@ -7,12 +6,9 @@ import sendToUser from '../lib/send-to-user'
 
 /**
  * Send a direct message from a user to a recipient
- * @exports
- * @function
- * @name msg
- * @param arg {string} The username of and message to an intended recipient
- * @param socket {Socket} The socket object from the client event
- * @param io {Server} The server-side Socket.io instance
+ * @param arg The username of and message to an intended recipient
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
  */
 const msg = (arg: string, socket: Socket, io: Server): void => {
   const username: TUsername = population.getUsername(socket.id)
@@ -26,15 +22,14 @@ const msg = (arg: string, socket: Socket, io: Server): void => {
 
     // If the recipient exists, send the message to them
     if (recipientId) {
-      const designator: string = chalk.magenta(`[${username} → ${recipient}]`)
+      const designator: string = `[${username} → ${recipient}]`
       const msgArg: string = arg.slice(recipient.length, arg.length)
       const message: string = designator + msgArg
       sendToUser(message, socket, io, recipientId)
     } else {
       // Else inform the user of the problem
-      const message: string = chalk.red(
-        `The user '${recipient}' does not exist`
-      )
+      const message: string = `The user '${recipient}' does not exist`
+
       sendToUser(message, socket, io, null)
     }
   }

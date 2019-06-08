@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { Server, Socket } from 'socket.io'
 
 import { TRoomName, TSocketId, TUsername } from '../../types/global'
@@ -8,12 +7,9 @@ import sendToUser from '../lib/send-to-user'
 
 /**
  * Move a user from a room to the Lobby
- * @exports
- * @function
- * @name leave
- * @param arg {null} Unused parameter
- * @param socket {Socket} The socket object from the client event
- * @param io {Server} The server-side Socket.io instance
+ * @param arg Unused parameter
+ * @param socket The socket object from the client event
+ * @param io The server-side Socket.io instance
  */
 const leave = (arg: null = null, socket: Socket, io: Server): void => {
   const username = population.getUsername(socket.id)
@@ -30,28 +26,24 @@ const leave = (arg: null = null, socket: Socket, io: Server): void => {
     socket.join(newRoom)
 
     // Send a message to the user
-    const message: string = `You have left ${chalk.red(
-      oldRoom
-    )} and joined ${chalk.green(newRoom)}`
+    const message: string = `You have left ${oldRoom} and joined ${newRoom}`
     sendToUser(message, socket, io, null)
 
     // Send a message to the room they're leaving
     const leaderId: TSocketId = population.getLeader(oldRoom)
-    const leader: TUsername = chalk.cyan(population.getUsername(leaderId))
-    const oldRoomMessage: string = `${username} has left ${chalk.red(
-      oldRoom
-    )} and joined ${chalk.green(newRoom)}
+    const leader: TUsername = population.getUsername(leaderId)
+    const oldRoomMessage: string = `${username} has left ${oldRoom} and joined ${newRoom}
 The leader of your room is ${leader}`
+
     sendToRoom(oldRoomMessage, oldRoom, socket)
 
     // Send a message to their new room
-    const newRoomMessage: string = `${username} has joined you in ${chalk.green(
-      newRoom
-    )}`
+    const newRoomMessage: string = `${username} has joined you in ${newRoom}`
+
     sendToRoom(newRoomMessage, newRoom, socket)
   } else {
     // Send a message to the user
-    const message: string = `You are already in ${chalk.cyan(newRoom)}`
+    const message: string = `You are already in ${newRoom}`
     sendToUser(message, socket, io, null)
   }
 }
