@@ -3,7 +3,7 @@
  * @module middleware/404
  */
 
-import { NextFunction, Request, Response } from 'express-serve-static-core'
+import { NextFunction, Request, Response } from 'express'
 
 /**
  * Sends a 404 response

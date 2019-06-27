@@ -3,7 +3,7 @@
  * @module middleware/500
  */
 
-import { NextFunction, Request, Response } from 'express-serve-static-core'
+import { NextFunction, Request, Response } from 'express'
 import HttpException from './http-exception'
 
 /**
