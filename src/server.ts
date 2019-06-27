@@ -35,7 +35,7 @@ import swaggerDocument from './docs/swagger.json'
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 // Routes
-import v1Router from './routes/v1.router'
+import v1Router from './routes'
 app.use(v1Router)
 
 // Error handling

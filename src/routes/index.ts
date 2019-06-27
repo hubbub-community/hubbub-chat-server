@@ -4,7 +4,7 @@
  */
 
 import { Router } from 'express'
-import c from '../controllers/v1.controllers'
+import c from '../controllers'
 
 // Create a router instance
 const router: Router = Router()
