@@ -3,7 +3,6 @@ export type TCommandArg = string | null
 export type TRoomCount = number
 export type TRoomName = string
 export type TRoomNames = string[]
-export type TSchemaName = string
 export type TSocketId = string | null
 export type TTotalRooms = number
 export type TTotalUsers = number
@@ -54,12 +53,19 @@ export interface IUserNamesPerRoom {
   [key: string]: TUsername[]
 }
 
-/*
- * TODO: Add a `model` property onto the existing Express Request type.
- * TODO: The type of `model` should be formalized.
- */
-export interface IRequest {
-  body?: any
-  params?: any
-  model?: any
+export interface IParams extends express.Request.params {
+  id?: string
+  model?: string
+}
+
+import { Request } from 'express'
+import { MongooseModel } from '../models/mongoose.model'
+
+export interface IRequest extends Request {
+  // body?: any
+  params: IParams
+  model?: MongooseModel
+  // originalUrl?: any
+  // session?: any
+  // user?: any
 }
