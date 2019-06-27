@@ -1,6 +1,6 @@
 import { Server, Socket } from 'socket.io'
 
-import { TSocketId, TUsername } from '../../types/global'
+import { TSocketId, TUsername } from '../../types'
 import population from '../lib/population'
 import sendToUser from '../lib/send-to-user'
 

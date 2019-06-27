@@ -1,6 +1,6 @@
 import { Server, Socket } from 'socket.io'
 
-import { TRoomName, TUsername } from '../../types/global'
+import { TRoomName, TUsername } from '../../types'
 import population from '../lib/population'
 import sendToRoom from '../lib/send-to-room'
 import sendToUser from '../lib/send-to-user'

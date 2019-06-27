@@ -1,6 +1,6 @@
 import * as faker from 'faker'
 
-import * as t from '../../../types/global'
+import * as t from '../../../types'
 
 import Population from '../population-manager'
 

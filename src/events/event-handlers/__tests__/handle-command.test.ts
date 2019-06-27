@@ -1,7 +1,7 @@
 import { lorem } from 'faker'
 const { word } = lorem
 
-import { IParse, TCommand, TCommandArg } from '../../../types/global'
+import { IParse, TCommand, TCommandArg } from '../../../types'
 import handleCommand, { parse } from '../handle-command'
 
 jest.mock(`../../lib/handler-finder`, () => jest.fn())

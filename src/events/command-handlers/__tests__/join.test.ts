@@ -1,7 +1,7 @@
 import { lorem } from 'faker'
 const { word } = lorem
 
-import { TRoomName } from '../../../types/global'
+import { TRoomName } from '../../../types'
 import population from '../../lib/population'
 import sendToUser from '../../lib/send-to-user'
 import join from '../join'

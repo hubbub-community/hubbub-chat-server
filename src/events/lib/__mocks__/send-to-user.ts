@@ -1,5 +1,5 @@
 import { Socket } from 'socket.io'
-import { TSocketId } from '../../../types/global'
+import { TSocketId } from '../../../types'
 
 const sendToUser = (
   message: string,

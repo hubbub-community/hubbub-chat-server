@@ -1,11 +1,6 @@
 import { Server, Socket } from 'socket.io'
 
-import {
-  IHandlerFinder,
-  IParse,
-  TCommand,
-  TCommandArg,
-} from '../../types/global'
+import { IHandlerFinder, IParse, TCommand, TCommandArg } from '../../types'
 
 import handlerFinder from '../lib/handler-finder'
 

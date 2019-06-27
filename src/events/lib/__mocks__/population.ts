@@ -1,6 +1,6 @@
 import { lorem, random } from 'faker'
 
-import { TRoomName, TSocketId, TUsername } from '../../../types/global'
+import { TRoomName, TSocketId, TUsername } from '../../../types'
 import Population from '../population-manager'
 
 const population: Population = new Population()

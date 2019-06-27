@@ -1,4 +1,4 @@
-import { TSocketId } from '../../../types/global'
+import { TSocketId } from '../../../types'
 import population from '../../lib/population'
 import handleDisconnect from '../handle-disconnect'
 
