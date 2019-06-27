@@ -19,8 +19,8 @@
     "sourceMap": false,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es5"
+    "target": "es6"
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["**/__mocks__/**", "**/__tests__/**"]
 }
