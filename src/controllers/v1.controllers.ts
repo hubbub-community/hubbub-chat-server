@@ -1,5 +1,7 @@
-import { NextFunction, Response } from 'express-serve-static-core'
-import { IRequest } from '../types/global'
+import { NextFunction, Response } from 'express'
+import { Document, DocumentQuery, Query } from 'mongoose'
+
+import { IRequest } from '../types'
 
 /**
  * `Controllers` methods expect an instance of a class that extends `MongooseModel` to be
@@ -31,10 +33,12 @@ class Controllers {
    * @memberof Controllers
    */
   public getRecords(req: IRequest, res: Response, next: NextFunction): void {
-    const name = req.params.id
+    const id = req.params && req.params.id
     req.model
-      .get(name)
-      .then((results: object) => res.status(200).send(results))
+      .get(id)
+      .then((results: DocumentQuery<Document[], Document>) =>
+        res.status(200).send(results)
+      )
       .catch(next)
   }
 
@@ -47,10 +51,9 @@ class Controllers {
    */
   public createRecord(req: IRequest, res: Response, next: NextFunction): void {
     const { body } = req
-    // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .post(body)
-      .then((result: object) => res.status(200).send(result))
+      .then((result: Promise<Document>) => res.status(200).send(result))
       .catch(next)
   }
 
@@ -64,10 +67,9 @@ class Controllers {
   public updateRecord(req: IRequest, res: Response, next: NextFunction): void {
     const { body } = req
     const { id } = req.params
-    // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .put(id, body)
-      .then((result: object) => res.status(200).send(result))
+      .then((result: Query<any>) => res.status(200).send(result))
       .catch(next)
   }
 
@@ -82,10 +84,11 @@ class Controllers {
   public patchRecord(req: IRequest, res: Response, next: NextFunction): void {
     const { body } = req
     const { id } = req.params
-    // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .patch(id, body)
-      .then((result: object) => res.status(200).send(result))
+      .then((result: DocumentQuery<Document | null, Document>) =>
+        res.status(200).send(result)
+      )
       .catch(next)
   }
 
@@ -98,10 +101,11 @@ class Controllers {
    */
   public deleteRecord(req: IRequest, res: Response, next: NextFunction): void {
     const { id } = req.params
-    // TODO: Sync detailed result type with MongooseModel return type
     req.model
       .delete(id)
-      .then((result: object) => res.status(200).send(result))
+      .then((result: DocumentQuery<Document | null, Document>) =>
+        res.status(200).send(result)
+      )
       .catch(next)
   }
 }
