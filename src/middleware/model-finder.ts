@@ -3,9 +3,8 @@
  * @module middleware/model-finder
  */
 
-import { NextFunction, Response } from 'express-serve-static-core'
-import { IRequest } from '../types/global'
-// import { Document, Model, Schema } from 'mongoose'
+import { NextFunction, Response } from 'express'
+import { IRequest } from '../types'
 
 /**
  * Model Finder Middleware evaluates `req.params.model` (i.e. `/api/v1/:model`) and attaches
@@ -21,8 +20,11 @@ const modelFinder = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const modelName = req.params.model.replace(/[^a-z0-9-_]/gi, '')
-  const model = await import(`../models/${modelName}/${modelName}.model`)
+  const modelName =
+    req.params &&
+    req.params.model &&
+    req.params.model.replace(/[^a-z0-9-_]/gi, '')
+  const model = await import(`../models/${modelName}/${modelName}`)
   req.model = model.default
   next()
 }
