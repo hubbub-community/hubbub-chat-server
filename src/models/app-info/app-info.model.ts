@@ -1,9 +1,23 @@
-import MongooseModel from '../mongoose.model'
-import appInfoSchema from './app-info.schema'
+import mongoose, { Document, Model, model, Schema } from 'mongoose'
+// require('mongoose-schema-jsonschema')(mongoose) // Not sure how to require this for context
 
-/**
- * @param schema Mongoose schema
- */
-class AppInfoModel extends MongooseModel {}
+export interface IAppInfo {
+  description: string
+  name: string
+  url: string
+}
 
-export default new AppInfoModel(appInfoSchema)
+export const AppInfoSchema: Schema = new Schema({
+  description: { type: String, required: true },
+  name: { type: String, required: true },
+  url: { type: String, required: true },
+})
+
+export interface IAppInfoModel extends IAppInfo, Document {}
+
+const AppInfoModel: Model<IAppInfoModel> = model<IAppInfoModel>(
+  'AppInfo',
+  AppInfoSchema
+)
+
+export default AppInfoModel

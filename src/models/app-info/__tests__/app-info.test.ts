@@ -1,5 +1,5 @@
 import supergoose from '../../../__tests__/supergoose'
-import appInfo from '../app-info.model'
+import appInfo from '../app-info'
 
 beforeAll(supergoose.startDB)
 afterAll(supergoose.stopDB)
@@ -24,15 +24,17 @@ describe('`appInfo` model', () => {
 
   it('can `get` all records', async () => {
     const record = await appInfo.get()
-    expect(record.length).toBe(3)
-    expect(record[1]).toMatchObject(update)
+    if (Array.isArray(record)) {
+      expect(record.length).toBe(3)
+      expect(record[1]).toMatchObject(update)
+    }
+    expect.assertions(2)
   })
 
-  it('can `get` a record by `name`', async () => {
-    // Note that the client calls `find(name)` instead
-    // of `findOne(name)`
-    const record = await appInfo.get(update.name)
-    expect(record[0]).toMatchObject(update)
+  it('can `get` a record by `id`', async () => {
+    const { id } = await appInfo.post(obj)
+    const record = await appInfo.get(id)
+    expect(record).toMatchObject(obj)
   })
 
   it('can `patch` a record', async () => {
